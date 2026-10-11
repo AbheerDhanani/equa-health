@@ -73,7 +73,7 @@ Then open [http://localhost:8080](http://localhost:8080) in your web browser.
 5. Select branch **`main`** and folder **`/ (root)`**, then click **Save**.
 6. Within ~60 seconds, your site will be live at:
    ```
-   https://<your-username>.github.io/<your-repo-name>/
+   https://abheerdhanani.github.io/equa-health/
    ```
 
 ---
