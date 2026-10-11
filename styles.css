@@ -1,0 +1,240 @@
+/* ==========================================================================
+   EQUA - Equal Medicine, Explained
+   Brand Stylesheet
+   ========================================================================== */
+
+:root {
+  --equa-teal-dark: #073433;
+  --equa-teal: #0A4A48;
+  --equa-teal-medium: #11605D;
+  --equa-teal-light: #1A7A76;
+  --equa-teal-subtle: #EBF5F4;
+  
+  --equa-coral: #EB6B47;
+  --equa-coral-hover: #D85633;
+  --equa-coral-light: #FDF1ED;
+  --equa-coral-subtle: #FFF7F5;
+  
+  --equa-aqua: #2BB3A4;
+  --equa-aqua-dark: #1E8F83;
+  --equa-aqua-light: #E7F8F6;
+  
+  --equa-oat: #FBF8F2;
+  --equa-oat-card: #FFFFFF;
+  --equa-sand: #F2ECE1;
+  --equa-border: #E5DFD3;
+  
+  --equa-ink: #142322;
+  --equa-ink-soft: #2B3D3B;
+  --equa-muted: #597371;
+  --equa-muted-light: #8DA4A2;
+}
+
+/* Base resets & typography */
+body {
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  color: var(--equa-ink);
+  background-color: var(--equa-oat);
+  overflow-x: hidden;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  letter-spacing: -0.025em;
+  font-weight: 700;
+  color: var(--equa-ink);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--equa-oat);
+}
+::-webkit-scrollbar-thumb {
+  background: #C4D3D1;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--equa-teal-medium);
+}
+
+/* Hero Pill Visualizer interactive toggle */
+.pill-wrapper {
+  position: relative;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.pill-capsule {
+  width: 220px;
+  height: 90px;
+  border-radius: 45px;
+  display: flex;
+  overflow: hidden;
+  box-shadow: 0 12px 32px rgba(10, 74, 72, 0.15);
+  transition: transform 0.4s ease;
+}
+
+.pill-capsule:hover {
+  transform: translateY(-4px) scale(1.02);
+}
+
+.pill-half-origin {
+  flex: 1;
+  background: linear-gradient(135deg, #4A6984 0%, #2A4864 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.pill-half-equa {
+  flex: 1;
+  background: linear-gradient(135deg, var(--equa-coral) 0%, #F07E5C 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.pill-half-aqua {
+  flex: 1;
+  background: linear-gradient(135deg, var(--equa-aqua) 0%, #3AD4C3 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+/* Bioequivalence Canvas Chart */
+#bioeqCanvas {
+  width: 100%;
+  height: 280px;
+  border-radius: 12px;
+}
+
+/* Card hover elevations */
+.equa-card {
+  background: var(--equa-oat-card);
+  border: 1px solid var(--equa-border);
+  border-radius: 20px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.equa-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 36px rgba(10, 74, 72, 0.08);
+  border-color: #CBD8D6;
+}
+
+/* Interactive slider */
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 8px;
+  background: #DCE5E4;
+  border-radius: 4px;
+  outline: none;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 24px;
+  height: 24px;
+  background: var(--equa-teal);
+  border: 3px solid #FFFFFF;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: transform 0.15s ease, background-color 0.15s ease;
+}
+
+input[type="range"]::-webkit-slider-thumb:hover {
+  transform: scale(1.15);
+  background: var(--equa-coral);
+}
+
+/* Custom Accordion */
+.faq-question {
+  cursor: pointer;
+  user-select: none;
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s cubic-bezier(0, 1, 0, 1), opacity 0.3s ease;
+  opacity: 0;
+}
+
+.faq-item.active .faq-answer {
+  max-height: 500px;
+  opacity: 1;
+  transition: max-height 0.4s ease-in-out, opacity 0.35s ease;
+}
+
+.faq-item.active .faq-icon {
+  transform: rotate(180deg);
+}
+
+/* Language toggle active pill */
+.lang-btn.active {
+  background-color: var(--equa-teal);
+  color: #FFFFFF;
+  box-shadow: 0 2px 8px rgba(10, 74, 72, 0.25);
+}
+
+/* Print styling for Doctor Slip Modal */
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  #doctorSlipModal, #doctorSlipModal * {
+    visibility: visible;
+  }
+  #doctorSlipModal {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    margin: 0;
+    padding: 20px;
+    background: white !important;
+  }
+  .no-print {
+    display: none !important;
+  }
+}
+
+/* Smooth tab switches */
+.filter-tab.active {
+  background-color: var(--equa-teal);
+  color: white;
+  border-color: var(--equa-teal);
+}
+
+/* Badge styling */
+.badge-certified {
+  background-color: #E6F6F4;
+  color: var(--equa-teal);
+  border: 1px solid #B8E4DF;
+}
+
+/* Glassmorphism nav overlay */
+.glass-nav {
+  background-color: rgba(251, 248, 242, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(229, 223, 211, 0.8);
+}

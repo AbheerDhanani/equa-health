@@ -1,0 +1,1101 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EQUA — Equal Medicine, Explained | Clear Choice. Fair Price.</title>
+  
+  <!-- Favicon using standalone SVG icon -->
+  <link rel="icon" type="image/svg+xml" href="assets/logo-icon.svg">
+  
+  <!-- Google Fonts: Plus Jakarta Sans & Outfit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            teal: {
+              850: '#073433',
+              900: '#0A4A48',
+              800: '#11605D',
+              700: '#1A7A76',
+              50: '#EBF5F4'
+            },
+            coral: {
+              500: '#EB6B47',
+              600: '#D85633',
+              50: '#FDF1ED'
+            },
+            aqua: {
+              400: '#2BB3A4',
+              500: '#1E8F83',
+              50: '#E7F8F6'
+            },
+            oat: {
+              DEFAULT: '#FBF8F2',
+              card: '#FFFFFF',
+              sand: '#F2ECE1',
+              border: '#E5DFD3'
+            },
+            ink: {
+              DEFAULT: '#142322',
+              soft: '#2B3D3B',
+              muted: '#597371'
+            }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-[#FBF8F2] text-[#142322] antialiased selection:bg-[#2BB3A4] selection:text-white">
+
+  <!-- TOP BRAND MANIFESTO BAR -->
+  <div class="bg-[#073433] text-[#E7F8F6] text-xs py-2 px-4 text-center font-medium border-b border-[#11605D] flex items-center justify-center gap-2">
+    <span class="inline-block w-2 h-2 rounded-full bg-[#2BB3A4] animate-pulse"></span>
+    <span><strong>EQUA: Equal Medicine, Explained</strong> — Making affordable medicines feel like an informed choice rather than a compromise.</span>
+  </div>
+
+  <!-- STICKY NAVIGATION -->
+  <header class="sticky top-0 z-40 glass-nav transition-all duration-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      
+      <!-- Brand Logo -->
+      <a href="#" class="flex items-center gap-3 group" aria-label="EQUA Home">
+        <div class="h-12 w-auto flex items-center">
+          <img src="assets/logo.svg" alt="EQUA - Clear Choice. Fair Price." class="h-11 w-auto object-contain text-[#0A4A48]" />
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <nav class="hidden md:flex items-center gap-8 text-sm font-semibold text-[#2B3D3B]">
+        <a href="#understanding" class="hover:text-[#0A4A48] transition">What is Equal Medicine?</a>
+        <a href="#how-it-works" class="hover:text-[#0A4A48] transition">Inside the Medicine</a>
+        <a href="#honest-math" class="hover:text-[#0A4A48] transition">The Honest Math</a>
+        <a href="#explorer" class="hover:text-[#0A4A48] transition">Check Your Medicine</a>
+        <a href="#doctor-role" class="hover:text-[#0A4A48] transition">The Doctor's Role</a>
+        <a href="#pharmacist-desk" class="hover:text-[#0A4A48] transition">FAQ</a>
+      </nav>
+
+      <!-- Right Controls: Regional Language & Doctor Slip Action -->
+      <div class="flex items-center gap-3">
+        
+        <!-- Regional Language Switcher -->
+        <div class="flex items-center bg-[#F2ECE1] p-1 rounded-xl text-xs font-bold border border-[#E5DFD3]">
+          <button class="lang-btn active px-2.5 py-1 rounded-lg transition" data-lang="en">EN</button>
+          <button class="lang-btn px-2.5 py-1 rounded-lg transition" data-lang="hi">हिन्दी</button>
+        </div>
+
+        <!-- Doctor Discussion Slip CTA (No Login Needed!) -->
+        <button 
+          class="open-doctor-slip relative flex items-center gap-2 bg-[#0A4A48] hover:bg-[#11605D] text-white text-xs sm:text-sm font-semibold py-2.5 px-4 rounded-xl shadow-sm transition active:scale-95"
+          aria-label="View Doctor Discussion Slip"
+        >
+          <svg class="w-4 h-4 text-[#2BB3A4]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+          </svg>
+          <span class="hidden sm:inline">Doctor Discussion Slip</span>
+          <span class="sm:hidden">Slip</span>
+          <span id="doctorSlipCount" class="hidden ml-1 px-1.5 py-0.2 bg-[#EB6B47] text-white text-[11px] font-extrabold rounded-full">0</span>
+        </button>
+
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- HERO SECTION -->
+    <section class="relative pt-12 pb-20 lg:pt-16 lg:pb-28 overflow-hidden">
+      <!-- Subtle organic background accents -->
+      <div class="absolute -top-40 -right-40 w-96 h-96 bg-[#2BB3A4]/10 rounded-full blur-3xl pointer-events-none"></div>
+      <div class="absolute top-1/2 -left-40 w-96 h-96 bg-[#EB6B47]/10 rounded-full blur-3xl pointer-events-none"></div>
+
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+          
+          <!-- Left Column: Plain-Spoken Brand Message -->
+          <div class="lg:col-span-7 space-y-6">
+            
+            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#EBF5F4] border border-[#CDE5E3] text-xs font-semibold text-[#0A4A48]">
+              <span class="w-2 h-2 rounded-full bg-[#EB6B47]"></span>
+              <span>Clarity Builds Confidence &bull; Price Doesn't Determine Quality</span>
+            </div>
+
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-[#142322] tracking-tight leading-[1.12]" data-i18n="heroTagline">
+              Equal Medicine, <span class="text-[#0A4A48] underline decoration-[#2BB3A4] decoration-wavy decoration-2">Explained.</span>
+            </h1>
+
+            <p class="text-lg sm:text-xl text-[#2B3D3B] font-medium leading-relaxed max-w-2xl" data-i18n="heroLead">
+              People don’t doubt generics because they’ve seen proof against them. They doubt them because no one has shown them proof for them. In that silence, a low price reads as low quality.
+            </p>
+
+            <p class="text-base text-[#597371] leading-relaxed max-w-2xl" data-i18n="heroSub">
+              EQUA fills that silence through communication: explaining in plain words what a generic is, how it is approved, made and tested, and why it costs less. We do not ask for blind trust. We give you what you need to form it yourself, and we keep your doctor in the conversation.
+            </p>
+
+            <!-- Key commitments (No Jargon, Doctor Collaborated, Checkable) -->
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2">
+              <div class="flex items-center gap-2.5 p-3 rounded-xl bg-white border border-[#E5DFD3]">
+                <div class="w-8 h-8 rounded-lg bg-[#EBF5F4] text-[#0A4A48] flex items-center justify-center font-bold text-sm">1</div>
+                <div>
+                  <div class="text-xs font-bold text-[#142322]">Same Active Salt</div>
+                  <div class="text-[11px] text-[#597371]">Identical therapeutic molecule</div>
+                </div>
+              </div>
+              <div class="flex items-center gap-2.5 p-3 rounded-xl bg-white border border-[#E5DFD3]">
+                <div class="w-8 h-8 rounded-lg bg-[#FDF1ED] text-[#EB6B47] flex items-center justify-center font-bold text-sm">2</div>
+                <div>
+                  <div class="text-xs font-bold text-[#142322]">Fair Transparent Price</div>
+                  <div class="text-[11px] text-[#597371]">Never pay for brand marketing</div>
+                </div>
+              </div>
+              <div class="flex items-center gap-2.5 p-3 rounded-xl bg-white border border-[#E5DFD3]">
+                <div class="w-8 h-8 rounded-lg bg-[#E7F8F6] text-[#2BB3A4] flex items-center justify-center font-bold text-sm">3</div>
+                <div>
+                  <div class="text-xs font-bold text-[#142322]">Doctor Aligned</div>
+                  <div class="text-[11px] text-[#597371]">Collaborative checkable care</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Action buttons -->
+            <div class="flex flex-wrap items-center gap-4 pt-4">
+              <a href="#explorer" class="bg-[#0A4A48] hover:bg-[#11605D] text-white px-7 py-3.5 rounded-xl font-bold text-sm shadow-md transition transform hover:-translate-y-0.5 flex items-center gap-2">
+                <span>Check Your Medicine</span>
+                <svg class="w-4 h-4 text-[#2BB3A4]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+              </a>
+              <a href="#honest-math" class="bg-white hover:bg-[#F2ECE1] text-[#2B3D3B] border border-[#CBD8D6] px-6 py-3.5 rounded-xl font-bold text-sm transition">
+                Understand the Price
+              </a>
+            </div>
+
+          </div>
+
+          <!-- Right Column: Interactive Side-by-Side Pill Inspector -->
+          <div class="lg:col-span-5">
+            <div class="bg-white rounded-3xl p-6 sm:p-8 border border-[#E5DFD3] shadow-xl relative overflow-hidden">
+              <div class="flex items-center justify-between pb-4 border-b border-[#F2ECE1] mb-6">
+                <div>
+                  <span class="text-xs font-extrabold uppercase tracking-wider text-[#0A4A48] block">Interactive Laboratory Demo</span>
+                  <h3 class="text-lg font-bold text-[#142322]">Atorvastatin 10 mg Tablet</h3>
+                </div>
+                <span class="text-xs px-2.5 py-1 bg-[#E7F8F6] text-[#0A4A48] font-semibold rounded-md border border-[#B8E4DF]">
+                  100% Bioequivalent
+                </span>
+              </div>
+
+              <!-- Pill Visual comparison -->
+              <div class="space-y-6">
+                
+                <!-- Branded Pill Row -->
+                <div class="p-4 rounded-2xl bg-[#FAF8F5] border border-[#E5DFD3] transition">
+                  <div class="flex items-center justify-between mb-2">
+                    <span class="text-xs font-bold text-[#597371] uppercase tracking-wide">Originator Branded Box</span>
+                    <span class="text-sm font-bold text-[#8DA4A2] line-through">₹165 / strip</span>
+                  </div>
+                  <div class="flex items-center gap-4">
+                    <div class="w-20 h-10 rounded-full bg-gradient-to-r from-[#3B5B78] to-[#1E3A54] flex items-center justify-center text-white text-[11px] font-bold shadow-inner">
+                      Brand Pill
+                    </div>
+                    <div class="flex-1 text-xs text-[#597371]">
+                      Active ingredient: <strong class="text-[#142322]">Atorvastatin Calcium 10mg</strong>. 
+                      Price includes 20-year-old R&D recoup, medical sales rep bonuses, TV ads, and fancy blister foils.
+                    </div>
+                  </div>
+                </div>
+
+                <!-- EQUA Equal Medicine Row -->
+                <div class="p-4 rounded-2xl bg-[#EBF5F4] border-2 border-[#2BB3A4] relative transition">
+                  <div class="absolute -top-3 right-4 bg-[#EB6B47] text-white text-[10px] font-black uppercase tracking-wider px-2 py-0.5 rounded-full shadow-sm">
+                    Exact Same Molecule
+                  </div>
+                  <div class="flex items-center justify-between mb-2">
+                    <span class="text-xs font-bold text-[#0A4A48] uppercase tracking-wide">EQUA Equal Medicine</span>
+                    <span class="text-lg font-extrabold text-[#0A4A48]">₹32 / strip</span>
+                  </div>
+                  <div class="flex items-center gap-4">
+                    <div class="w-20 h-10 rounded-full bg-gradient-to-r from-[#EB6B47] to-[#2BB3A4] flex items-center justify-center text-white text-[11px] font-bold shadow-inner">
+                      EQUA Pill
+                    </div>
+                    <div class="flex-1 text-xs text-[#2B3D3B]">
+                      Active ingredient: <strong class="text-[#0A4A48]">Atorvastatin Calcium 10mg</strong>. 
+                      Manufactured in certified WHO-GMP plants. Strict pharmacopeial dissolution testing. 
+                      Zero advertising overhead.
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Absorption & Bioavailability Verification Bar -->
+                <div class="bg-[#FAF8F5] p-4 rounded-xl border border-[#E5DFD3] space-y-2 text-xs">
+                  <div class="flex justify-between items-center font-semibold text-[#142322]">
+                    <span>Biological Absorption Match</span>
+                    <span class="text-[#0A4A48] font-bold">99.4% (Within ±3% Strict Limit)</span>
+                  </div>
+                  <div class="w-full bg-[#E5DFD3] h-2.5 rounded-full overflow-hidden">
+                    <div class="bg-[#2BB3A4] h-full rounded-full" style="width: 99.4%"></div>
+                  </div>
+                  <p class="text-[11px] text-[#597371] pt-1">
+                    Your body's liver enzymes, cardiac receptors, and bloodstream absorb this molecule identically. The human body does not read brand labels.
+                  </p>
+                </div>
+
+              </div>
+
+              <div class="mt-5 pt-4 border-t border-[#F2ECE1] text-center">
+                <span class="text-xs text-[#597371]">
+                  A chronic cardiac patient saves <strong>₹1,596 every year</strong> on this single medicine alone.
+                </span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: THE THREE PILLARS (Brand Understanding & Meaning) -->
+    <section id="understanding" class="py-20 bg-white border-y border-[#E5DFD3]">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="max-w-3xl mx-auto text-center space-y-4 mb-16">
+          <div class="inline-block px-3 py-1 rounded-full bg-[#F2ECE1] text-xs font-bold text-[#0A4A48]">
+            The Meaning Behind the Name
+          </div>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-[#142322]">
+            What EQUA Stands For
+          </h2>
+          <p class="text-base text-[#597371] leading-relaxed">
+            We chose the name <strong>EQUA</strong> because it represents equality, fairness, and balance. 
+            Our role is to replace silence and doubt with clear, checkable understanding.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          
+          <!-- Pillar 1: Equality -->
+          <div class="equa-card p-8 flex flex-col justify-between border-t-4 border-t-[#0A4A48]">
+            <div>
+              <div class="w-14 h-14 rounded-2xl bg-[#EBF5F4] text-[#0A4A48] flex items-center justify-center mb-6">
+                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                </svg>
+              </div>
+              <h3 class="text-2xl font-bold text-[#142322] mb-3" data-i18n="pillarEqualityTitle">Equality</h3>
+              <p class="text-sm font-semibold text-[#0A4A48] mb-3">Same Active Chemical Ingredient</p>
+              <p class="text-sm text-[#597371] leading-relaxed" data-i18n="pillarEqualityText">
+                A molecule of Paracetamol, Atorvastatin, or Telmisartan has the exact same atomic bonds regardless of who manufactures it. When drug patents expire, the molecular formulation belongs to humanity. Your body receives the identical clinical remedy.
+              </p>
+            </div>
+            <div class="pt-6 mt-6 border-t border-[#F2ECE1] text-xs font-semibold text-[#2B3D3B] flex items-center gap-1.5">
+              <span class="w-1.5 h-1.5 rounded-full bg-[#0A4A48]"></span>
+              <span>Therapeutically & chemically equal</span>
+            </div>
+          </div>
+
+          <!-- Pillar 2: Fairness -->
+          <div class="equa-card p-8 flex flex-col justify-between border-t-4 border-t-[#EB6B47]">
+            <div>
+              <div class="w-14 h-14 rounded-2xl bg-[#FDF1ED] text-[#EB6B47] flex items-center justify-center mb-6">
+                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+              </div>
+              <h3 class="text-2xl font-bold text-[#142322] mb-3" data-i18n="pillarFairnessTitle">Fairness</h3>
+              <p class="text-sm font-semibold text-[#EB6B47] mb-3">The Price Difference Explained Openly</p>
+              <p class="text-sm text-[#597371] leading-relaxed" data-i18n="pillarFairnessText">
+                We never use the words "cheap" or "compromise." The price difference is explained openly: you are not paying for 20-year-old expired patents, TV campaigns, or sales-rep gifts. You only pay for honest manufacturing, batch testing, and distribution.
+              </p>
+            </div>
+            <div class="pt-6 mt-6 border-t border-[#F2ECE1] text-xs font-semibold text-[#2B3D3B] flex items-center gap-1.5">
+              <span class="w-1.5 h-1.5 rounded-full bg-[#EB6B47]"></span>
+              <span>Transparent math, zero hidden markups</span>
+            </div>
+          </div>
+
+          <!-- Pillar 3: Balance -->
+          <div class="equa-card p-8 flex flex-col justify-between border-t-4 border-t-[#2BB3A4]">
+            <div>
+              <div class="w-14 h-14 rounded-2xl bg-[#E7F8F6] text-[#2BB3A4] flex items-center justify-center mb-6">
+                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3"/>
+                </svg>
+              </div>
+              <h3 class="text-2xl font-bold text-[#142322] mb-3" data-i18n="pillarBalanceTitle">Balance</h3>
+              <p class="text-sm font-semibold text-[#2BB3A4] mb-3">Patient, Pharmacist, & Doctor in Harmony</p>
+              <p class="text-sm text-[#597371] leading-relaxed" data-i18n="pillarBalanceText">
+                EQUA does not ask you to bypass your doctor. We give you the plain words and questions to bring to your consultation. Your doctor diagnoses, your pharmacist validates, and you make an empowered, dignified choice for your family.
+              </p>
+            </div>
+            <div class="pt-6 mt-6 border-t border-[#F2ECE1] text-xs font-semibold text-[#2B3D3B] flex items-center gap-1.5">
+              <span class="w-1.5 h-1.5 rounded-full bg-[#2BB3A4]"></span>
+              <span>Collaborative health, never adversarial</span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION 3: INSIDE THE MEDICINE & BIOEQUIVALENCE LAB -->
+    <section id="how-it-works" class="py-20 bg-[#FBF8F2]">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          
+          <!-- Explanation Column -->
+          <div class="lg:col-span-5 space-y-6">
+            <span class="text-xs font-extrabold uppercase tracking-wider text-[#0A4A48] bg-[#EBF5F4] px-3 py-1 rounded-full border border-[#CDE5E3]">
+              Quality & Science
+            </span>
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-[#142322] leading-tight">
+              Inside the Medicine: What Are You Actually Swallowing?
+            </h2>
+            <p class="text-base text-[#597371] leading-relaxed">
+              Every pharmaceutical tablet consists of two components. Understanding them removes 90% of all doubts about generics.
+            </p>
+
+            <div class="space-y-4">
+              
+              <div class="p-4 bg-white rounded-2xl border border-[#E5DFD3]">
+                <div class="flex items-start gap-3">
+                  <div class="w-7 h-7 rounded-full bg-[#0A4A48] text-white flex items-center justify-center font-bold text-xs flex-shrink-0 mt-0.5">A</div>
+                  <div>
+                    <h4 class="text-base font-bold text-[#142322]">1. The Active Pharmaceutical Ingredient (API)</h4>
+                    <p class="text-xs text-[#597371] mt-1 leading-relaxed">
+                      This is the active chemical molecule that heals: it dilates blood vessels, kills bacteria, or regulates glucose. By law, a generic must contain the <strong>exact same API in the exact same dosage</strong> as the branded original.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="p-4 bg-white rounded-2xl border border-[#E5DFD3]">
+                <div class="flex items-start gap-3">
+                  <div class="w-7 h-7 rounded-full bg-[#2BB3A4] text-white flex items-center justify-center font-bold text-xs flex-shrink-0 mt-0.5">B</div>
+                  <div>
+                    <h4 class="text-base font-bold text-[#142322]">2. Inactive Excipients (Binders & Coating)</h4>
+                    <p class="text-xs text-[#597371] mt-1 leading-relaxed">
+                      These are pharmaceutical-grade cornstarches, lactose, or cellulose that hold the tablet shape and dissolve smoothly in stomach acid. They do not alter the medicinal effect.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="p-4 bg-white rounded-2xl border border-[#E5DFD3]">
+                <div class="flex items-start gap-3">
+                  <div class="w-7 h-7 rounded-full bg-[#EB6B47] text-white flex items-center justify-center font-bold text-xs flex-shrink-0 mt-0.5">C</div>
+                  <div>
+                    <h4 class="text-base font-bold text-[#142322]">3. Bioequivalence Testing</h4>
+                    <p class="text-xs text-[#597371] mt-1 leading-relaxed">
+                      Before approval by government authorities (such as CDSCO or US FDA), the generic must prove that it delivers the drug into the human bloodstream at the exact same rate and extent as the originator.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+
+          <!-- Interactive Bioequivalence Chart Column -->
+          <div class="lg:col-span-7">
+            <div class="bg-white rounded-3xl p-6 sm:p-8 border border-[#E5DFD3] shadow-md">
+              <div class="flex flex-wrap items-center justify-between gap-4 mb-4 pb-4 border-b border-[#F2ECE1]">
+                <div>
+                  <h3 class="text-lg font-bold text-[#142322]">The Bioequivalence Curve</h3>
+                  <p class="text-xs text-[#597371]">Blood Concentration vs. Time Curve (Pharmacokinetics)</p>
+                </div>
+                <!-- Legend -->
+                <div class="flex items-center gap-4 text-xs font-semibold">
+                  <div class="flex items-center gap-1.5">
+                    <span class="w-3 h-3 rounded-full bg-[#2A4864]"></span>
+                    <span>Originator Brand</span>
+                  </div>
+                  <div class="flex items-center gap-1.5">
+                    <span class="w-3 h-3 rounded-full bg-[#EB6B47]"></span>
+                    <span>EQUA Equal Generic</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Canvas Chart -->
+              <div class="bg-[#FAF8F5] p-3 rounded-2xl border border-[#EDE7DD]">
+                <canvas id="bioeqCanvas"></canvas>
+              </div>
+
+              <!-- Explanatory footer below chart -->
+              <div class="mt-4 p-4 rounded-xl bg-[#EBF5F4] border border-[#CDE5E3] flex items-start gap-3 text-xs text-[#2B3D3B]">
+                <svg class="w-5 h-5 text-[#0A4A48] flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+                <div>
+                  <strong class="text-[#0A4A48]">What this test proves:</strong>
+                  The orange dashed curve (EQUA) matches the slate curve (Brand) inside the rigorous regulatory acceptance corridor. Peak blood concentration (Cmax) and total absorption (AUC) are statistically indistinguishable.
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION 4: THE HONEST MATH (Why does it cost less?) -->
+    <section id="honest-math" class="py-20 bg-white border-y border-[#E5DFD3]">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="max-w-3xl mx-auto text-center space-y-4 mb-16">
+          <div class="inline-block px-3 py-1 rounded-full bg-[#FDF1ED] text-xs font-bold text-[#EB6B47]">
+            Price Deconstruction
+          </div>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-[#142322]" data-i18n="honestMathTitle">
+            Why Does It Cost Less?
+          </h2>
+          <p class="text-base text-[#597371]" data-i18n="honestMathSub">
+            Never because of compromised ingredients. Always because of unbundled marketing.
+          </p>
+        </div>
+
+        <!-- The Breakdown Comparison -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
+          
+          <!-- Branded Box Breakdown -->
+          <div class="p-8 rounded-3xl bg-[#FAF8F5] border border-[#E5DFD3] space-y-6">
+            <div class="flex items-center justify-between pb-4 border-b border-[#EDE7DD]">
+              <div>
+                <span class="text-xs font-bold text-[#8DA4A2] uppercase tracking-wider block">Originator Branded Medicine</span>
+                <h4 class="text-xl font-extrabold text-[#142322]">Typical Price: ₹100</h4>
+              </div>
+              <span class="px-3 py-1 bg-white text-xs font-semibold text-[#597371] rounded-full border border-[#EDE7DD]">
+                High Overhead Model
+              </span>
+            </div>
+
+            <!-- Segment Bars -->
+            <div class="space-y-3 text-xs">
+              <div>
+                <div class="flex justify-between font-semibold mb-1 text-[#2B3D3B]">
+                  <span>Field Sales Reps & Doctor Detailing Gifts</span>
+                  <span class="text-[#8DA4A2]">₹35 (35%)</span>
+                </div>
+                <div class="w-full bg-[#E5DFD3] h-2 rounded-full overflow-hidden">
+                  <div class="bg-[#4A6984] h-full" style="width: 35%"></div>
+                </div>
+              </div>
+
+              <div>
+                <div class="flex justify-between font-semibold mb-1 text-[#2B3D3B]">
+                  <span>Mass Media Advertising & Brand Packaging</span>
+                  <span class="text-[#8DA4A2]">₹20 (20%)</span>
+                </div>
+                <div class="w-full bg-[#E5DFD3] h-2 rounded-full overflow-hidden">
+                  <div class="bg-[#4A6984]/80 h-full" style="width: 20%"></div>
+                </div>
+              </div>
+
+              <div>
+                <div class="flex justify-between font-semibold mb-1 text-[#2B3D3B]">
+                  <span>Expired Patent R&D & Monopoly Profit Margin</span>
+                  <span class="text-[#8DA4A2]">₹25 (25%)</span>
+                </div>
+                <div class="w-full bg-[#E5DFD3] h-2 rounded-full overflow-hidden">
+                  <div class="bg-[#4A6984]/60 h-full" style="width: 25%"></div>
+                </div>
+              </div>
+
+              <div>
+                <div class="flex justify-between font-semibold mb-1 text-[#2B3D3B]">
+                  <span>Actual High-Quality Medicine & Batch Testing</span>
+                  <span class="text-[#0A4A48] font-bold">₹20 (20%)</span>
+                </div>
+                <div class="w-full bg-[#E5DFD3] h-2 rounded-full overflow-hidden">
+                  <div class="bg-[#2BB3A4] h-full" style="width: 20%"></div>
+                </div>
+              </div>
+            </div>
+
+            <p class="text-xs text-[#597371] leading-relaxed italic bg-white p-3 rounded-xl border border-[#EDE7DD]">
+              "When you buy a branded drug 15 years after its release, 80% of your money pays for distribution networks and marketing that has nothing to do with health."
+            </p>
+          </div>
+
+          <!-- EQUA Generic Breakdown -->
+          <div class="p-8 rounded-3xl bg-[#EBF5F4] border-2 border-[#0A4A48] space-y-6 relative">
+            <div class="absolute -top-3.5 right-6 bg-[#0A4A48] text-white text-xs font-bold px-3 py-1 rounded-full">
+              The EQUA Standard
+            </div>
+
+            <div class="flex items-center justify-between pb-4 border-b border-[#CDE5E3]">
+              <div>
+                <span class="text-xs font-bold text-[#0A4A48] uppercase tracking-wider block">EQUA Equal Medicine</span>
+                <h4 class="text-xl font-extrabold text-[#0A4A48]">Transparent Fair Price: ₹25</h4>
+              </div>
+              <span class="px-3 py-1 bg-white text-xs font-bold text-[#0A4A48] rounded-full border border-[#B8E4DF]">
+                Zero Advertising Bloat
+              </span>
+            </div>
+
+            <!-- Segment Bars -->
+            <div class="space-y-3 text-xs">
+              <div>
+                <div class="flex justify-between font-semibold mb-1 text-[#0A4A48]">
+                  <span>Zero Marketing Reps & Sponsorships</span>
+                  <span class="text-[#2BB3A4] font-bold">₹0 (Eliminated)</span>
+                </div>
+                <div class="w-full bg-[#D4ECE9] h-2 rounded-full overflow-hidden">
+                  <div class="bg-gray-300 h-full" style="width: 0%"></div>
+                </div>
+              </div>
+
+              <div>
+                <div class="flex justify-between font-semibold mb-1 text-[#0A4A48]">
+                  <span>Clean, Honest Standard Packaging</span>
+                  <span class="text-[#0A4A48]">₹2 (8%)</span>
+                </div>
+                <div class="w-full bg-[#D4ECE9] h-2 rounded-full overflow-hidden">
+                  <div class="bg-[#2BB3A4]/60 h-full" style="width: 8%"></div>
+                </div>
+              </div>
+
+              <div>
+                <div class="flex justify-between font-semibold mb-1 text-[#0A4A48]">
+                  <span>Fair Pharmacist & Distribution Margin</span>
+                  <span class="text-[#0A4A48]">₹3 (12%)</span>
+                </div>
+                <div class="w-full bg-[#D4ECE9] h-2 rounded-full overflow-hidden">
+                  <div class="bg-[#2BB3A4]/80 h-full" style="width: 12%"></div>
+                </div>
+              </div>
+
+              <div>
+                <div class="flex justify-between font-semibold mb-1 text-[#0A4A48]">
+                  <span>Actual High-Quality Medicine & Batch Testing</span>
+                  <span class="text-[#0A4A48] font-bold">₹20 (80%)</span>
+                </div>
+                <div class="w-full bg-[#D4ECE9] h-2 rounded-full overflow-hidden">
+                  <div class="bg-[#0A4A48] h-full" style="width: 80%"></div>
+                </div>
+              </div>
+            </div>
+
+            <p class="text-xs text-[#0A4A48] leading-relaxed bg-white p-3 rounded-xl border border-[#CDE5E3] font-medium">
+              Notice: The actual investment in the medicine itself (<strong>₹20</strong>) is <strong>identical</strong> in both cases. You save ₹75 because the promotional apparatus is gone.
+            </p>
+          </div>
+
+        </div>
+
+        <!-- Interactive Household Calculator -->
+        <div class="bg-[#FAF8F5] rounded-3xl p-8 sm:p-10 border border-[#E5DFD3]">
+          <div class="max-w-2xl mx-auto text-center mb-8">
+            <h3 class="text-2xl font-bold text-[#142322]">Calculate Your Household Impact</h3>
+            <p class="text-sm text-[#597371] mt-1">
+              Drag the slider to your family's current monthly branded prescription bill.
+            </p>
+          </div>
+
+          <div class="max-w-xl mx-auto space-y-6">
+            
+            <div>
+              <div class="flex justify-between text-sm font-bold text-[#142322] mb-2">
+                <span>Current Monthly Branded Spend</span>
+                <span id="spendDisplay" class="text-lg text-[#0A4A48]">₹2,500</span>
+              </div>
+              <input type="range" id="monthlySpendSlider" min="500" max="10000" step="250" value="2500" class="w-full cursor-pointer">
+              <div class="flex justify-between text-xs text-[#8DA4A2] mt-1 font-semibold">
+                <span>₹500 / mo</span>
+                <span>₹5,000 / mo</span>
+                <span>₹10,000 / mo</span>
+              </div>
+            </div>
+
+            <!-- Calculated Output Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4">
+              <div class="bg-white p-4 rounded-2xl border border-[#EDE7DD] text-center">
+                <span class="text-xs text-[#597371] block">With EQUA (Monthly)</span>
+                <span id="equaSpendDisplay" class="text-xl font-extrabold text-[#0A4A48]">₹700</span>
+              </div>
+              <div class="bg-[#EBF5F4] p-4 rounded-2xl border border-[#B8E4DF] text-center">
+                <span class="text-xs text-[#0A4A48] font-bold block">1-Year Savings</span>
+                <span id="annualSaveDisplay" class="text-xl font-extrabold text-[#EB6B47]">₹21,600</span>
+              </div>
+              <div class="bg-white p-4 rounded-2xl border border-[#EDE7DD] text-center">
+                <span class="text-xs text-[#597371] block">5-Year Household Relief</span>
+                <span id="fiveYearSaveDisplay" class="text-xl font-extrabold text-[#0A4A48]">₹1,08,000</span>
+              </div>
+            </div>
+
+            <p class="text-xs text-center text-[#597371]">
+              ₹21,600 per year stays with your family for nutrition, education, and security—without missing a single dose of care.
+            </p>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION 5: MEDICINE EXPLORER & PRICE INDEX -->
+    <section id="explorer" class="py-20 bg-[#FBF8F2]">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="max-w-3xl mx-auto text-center space-y-4 mb-12">
+          <div class="inline-block px-3 py-1 rounded-full bg-[#EBF5F4] text-xs font-bold text-[#0A4A48]">
+            Search & Compare
+          </div>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-[#142322]">
+            Check Your Medicine
+          </h2>
+          <p class="text-base text-[#597371]">
+            Search by your current brand name or the generic salt written on your doctor's prescription.
+          </p>
+        </div>
+
+        <!-- Search Bar & Filters -->
+        <div class="max-w-4xl mx-auto mb-10 space-y-4">
+          
+          <div class="relative">
+            <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-[#8DA4A2]">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+            </div>
+            <input 
+              type="text" 
+              id="medicineSearch"
+              placeholder="Search by salt (e.g., Telmisartan, Metformin) or brand (e.g., Lipitor, Dolo, Pan 40)..." 
+              class="w-full pl-12 pr-4 py-4 rounded-2xl bg-white border border-[#CBD8D6] focus:border-[#0A4A48] focus:ring-2 focus:ring-[#0A4A48]/20 text-sm outline-none shadow-sm transition"
+            >
+          </div>
+
+          <!-- Category filter tabs -->
+          <div class="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none text-xs font-semibold">
+            <button class="filter-tab active px-4 py-2 rounded-xl bg-white border border-[#E5DFD3] text-[#2B3D3B] hover:border-[#0A4A48] transition whitespace-nowrap" data-category="all">
+              All Categories
+            </button>
+            <button class="filter-tab px-4 py-2 rounded-xl bg-white border border-[#E5DFD3] text-[#2B3D3B] hover:border-[#0A4A48] transition whitespace-nowrap" data-category="blood-pressure">
+              Blood Pressure
+            </button>
+            <button class="filter-tab px-4 py-2 rounded-xl bg-white border border-[#E5DFD3] text-[#2B3D3B] hover:border-[#0A4A48] transition whitespace-nowrap" data-category="diabetes">
+              Diabetes
+            </button>
+            <button class="filter-tab px-4 py-2 rounded-xl bg-white border border-[#E5DFD3] text-[#2B3D3B] hover:border-[#0A4A48] transition whitespace-nowrap" data-category="cholesterol">
+              Cholesterol & Heart
+            </button>
+            <button class="filter-tab px-4 py-2 rounded-xl bg-white border border-[#E5DFD3] text-[#2B3D3B] hover:border-[#0A4A48] transition whitespace-nowrap" data-category="acidity">
+              Acidity & Reflux
+            </button>
+            <button class="filter-tab px-4 py-2 rounded-xl bg-white border border-[#E5DFD3] text-[#2B3D3B] hover:border-[#0A4A48] transition whitespace-nowrap" data-category="pain">
+              Pain & Fever
+            </button>
+          </div>
+
+        </div>
+
+        <!-- Medicine Grid (rendered dynamically by app.js) -->
+        <div id="medicineList" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+
+      </div>
+    </section>
+
+    <!-- SECTION 6: THE DOCTOR IN THE CONVERSATION -->
+    <section id="doctor-role" class="py-20 bg-white border-y border-[#E5DFD3]">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          
+          <div class="lg:col-span-6 space-y-6">
+            <span class="text-xs font-extrabold uppercase tracking-wider text-[#0A4A48] bg-[#EBF5F4] px-3 py-1 rounded-full border border-[#CDE5E3]">
+              Collaborative Care
+            </span>
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-[#142322] leading-tight">
+              Keeping Your Doctor in the Conversation
+            </h2>
+            <p class="text-base text-[#597371] leading-relaxed">
+              EQUA never suggests replacing your doctor’s expertise. Most physicians prescribe brand names purely by clinical reflex—they learned that brand name in residency, or the medical rep left samples that morning.
+            </p>
+            <p class="text-base text-[#2B3D3B] leading-relaxed font-medium">
+              When patients ask respectfully in plain words, good doctors are eager to support fair-priced generic molecules because they know patients adhere better to treatment when medication is affordable.
+            </p>
+
+            <div class="pt-2">
+              <h4 class="text-sm font-bold text-[#142322] uppercase tracking-wider mb-4">
+                3 Calm Questions to Ask Your Physician:
+              </h4>
+
+              <div class="space-y-3">
+                <div class="p-4 bg-[#FAF8F5] rounded-xl border border-[#EDE7DD] flex items-start gap-3">
+                  <span class="w-6 h-6 rounded-full bg-[#0A4A48] text-white flex items-center justify-center font-bold text-xs flex-shrink-0">1</span>
+                  <p class="text-xs text-[#2B3D3B] font-medium leading-relaxed">
+                    <em>"Doctor, could you please write the generic salt name alongside the brand on my prescription?"</em>
+                  </p>
+                </div>
+
+                <div class="p-4 bg-[#FAF8F5] rounded-xl border border-[#EDE7DD] flex items-start gap-3">
+                  <span class="w-6 h-6 rounded-full bg-[#EB6B47] text-white flex items-center justify-center font-bold text-xs flex-shrink-0">2</span>
+                  <p class="text-xs text-[#2B3D3B] font-medium leading-relaxed">
+                    <em>"Is there any specific biochemical reason why a standard WHO-GMP bioequivalent version of this molecule cannot be dispensed for my condition?"</em>
+                  </p>
+                </div>
+
+                <div class="p-4 bg-[#FAF8F5] rounded-xl border border-[#EDE7DD] flex items-start gap-3">
+                  <span class="w-6 h-6 rounded-full bg-[#2BB3A4] text-white flex items-center justify-center font-bold text-xs flex-shrink-0">3</span>
+                  <p class="text-xs text-[#2B3D3B] font-medium leading-relaxed">
+                    <em>"Since this is a lifelong maintenance medicine, I'd like to manage household expenses sustainably so I never miss a dose."</em>
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="pt-2">
+              <button class="open-doctor-slip bg-[#0A4A48] hover:bg-[#11605D] text-white font-bold text-sm px-6 py-3.5 rounded-xl shadow-md transition flex items-center gap-2">
+                <svg class="w-5 h-5 text-[#2BB3A4]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/></svg>
+                <span>Generate Printable Doctor Discussion Slip</span>
+              </button>
+            </div>
+
+          </div>
+
+          <!-- Doctor Discussion Card Preview Mockup -->
+          <div class="lg:col-span-6">
+            <div class="bg-[#FBF8F2] p-8 rounded-3xl border-2 border-dashed border-[#CBD8D6] shadow-sm relative">
+              <div class="bg-white p-6 rounded-2xl border border-[#E5DFD3] shadow-sm space-y-4">
+                
+                <div class="flex items-center justify-between pb-3 border-b border-[#F2ECE1]">
+                  <div class="flex items-center gap-2">
+                    <img src="assets/logo-icon.svg" alt="EQUA" class="w-6 h-6">
+                    <span class="text-xs font-black tracking-wider text-[#0A4A48]">EQUA PATIENT CONVERSATION SLIP</span>
+                  </div>
+                  <span class="text-[11px] text-[#597371]">For Clinical Review</span>
+                </div>
+
+                <div class="text-xs text-[#597371] leading-relaxed">
+                  <strong>To the Attending Physician:</strong><br>
+                  The patient is reviewing their chronic medication regimen to ensure long-term treatment adherence. Below are the equivalent international generic molecules for your evaluation and prescription endorsement.
+                </div>
+
+                <div class="bg-[#FAF8F5] p-3 rounded-xl border border-[#EDE7DD] space-y-2 text-xs">
+                  <div class="flex justify-between items-center text-[#142322]">
+                    <span class="font-bold">Telmisartan 40mg (IP)</span>
+                    <span class="text-[#597371]">Replaces: Telma 40</span>
+                  </div>
+                  <div class="flex justify-between items-center text-[#142322]">
+                    <span class="font-bold">Metformin 500mg SR</span>
+                    <span class="text-[#597371]">Replaces: Glycomet SR</span>
+                  </div>
+                </div>
+
+                <div class="pt-2 text-[11px] text-[#597371] border-t border-[#F2ECE1] flex justify-between items-center">
+                  <span>Standard: WHO-GMP Certified</span>
+                  <span class="font-semibold text-[#0A4A48]">Equal Medicine, Explained</span>
+                </div>
+
+              </div>
+              
+              <div class="mt-4 text-center">
+                <span class="text-xs font-semibold text-[#0A4A48]">
+                  Click "Add to Doctor Slip" on any medicine card above to customize this slip.
+                </span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION 7: THE PHARMACIST'S DESK (Plain-Spoken FAQ) -->
+    <section id="pharmacist-desk" class="py-20 bg-[#FBF8F2]">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center space-y-4 mb-16">
+          <div class="inline-block px-3 py-1 rounded-full bg-[#EBF5F4] text-xs font-bold text-[#0A4A48]">
+            The Pharmacist's Desk
+          </div>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-[#142322]">
+            Plain Answers to Honest Questions
+          </h2>
+          <p class="text-base text-[#597371] max-w-xl mx-auto">
+            Calm, patient explanations without medical jargon—just like a pharmacist speaking with an elderly family member.
+          </p>
+        </div>
+
+        <div class="space-y-4">
+          
+          <!-- FAQ 1 -->
+          <div class="faq-item bg-white rounded-2xl border border-[#E5DFD3] p-6">
+            <div class="faq-question flex items-center justify-between font-bold text-[#142322] text-base sm:text-lg">
+              <span>Why do generic tablets sometimes look different in color or shape from the brand I’m used to?</span>
+              <svg class="faq-icon w-5 h-5 text-[#8DA4A2] transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </div>
+            <div class="faq-answer">
+              <p class="text-sm text-[#597371] pt-3 leading-relaxed border-t border-[#F2ECE1] mt-3">
+                Under trademark and patent law, pharmaceutical companies can trademark the specific shape, dye color, or packaging style of a pill—even after the patent on the medicine itself expires. Therefore, another manufacturer must use a different harmless food-grade dye or round shape. The active therapeutic molecule inside is identical.
+              </p>
+            </div>
+          </div>
+
+          <!-- FAQ 2 -->
+          <div class="faq-item bg-white rounded-2xl border border-[#E5DFD3] p-6">
+            <div class="faq-question flex items-center justify-between font-bold text-[#142322] text-base sm:text-lg">
+              <span>If generic medicines are so good, why doesn't my doctor always write them?</span>
+              <svg class="faq-icon w-5 h-5 text-[#8DA4A2] transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </div>
+            <div class="faq-answer">
+              <p class="text-sm text-[#597371] pt-3 leading-relaxed border-t border-[#F2ECE1] mt-3">
+                Doctors see dozens of patients every day and write prescriptions under immense time pressure. They naturally recall the brand names they learned in medical school or saw on the sample boxes left by pharmaceutical representatives. When you politely ask your doctor for the generic salt name, nearly all doctors agree immediately because they want their patients to be able to afford their medications.
+              </p>
+            </div>
+          </div>
+
+          <!-- FAQ 3 -->
+          <div class="faq-item bg-white rounded-2xl border border-[#E5DFD3] p-6">
+            <div class="faq-question flex items-center justify-between font-bold text-[#142322] text-base sm:text-lg">
+              <span>How do I know the factory that made this generic medicine maintains clean, strict standards?</span>
+              <svg class="faq-icon w-5 h-5 text-[#8DA4A2] transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </div>
+            <div class="faq-answer">
+              <p class="text-sm text-[#597371] pt-3 leading-relaxed border-t border-[#F2ECE1] mt-3">
+                India is the pharmacy of the world, supplying over 40% of all generic drugs used in the United States and Europe. EQUA medicines are sourced solely from facilities certified by the World Health Organization (WHO-GMP) and the CDSCO. The very same assembly lines that package expensive brand-name tablets often package the generic equivalents on the adjacent shift.
+              </p>
+            </div>
+          </div>
+
+          <!-- FAQ 4 -->
+          <div class="faq-item bg-white rounded-2xl border border-[#E5DFD3] p-6">
+            <div class="faq-question flex items-center justify-between font-bold text-[#142322] text-base sm:text-lg">
+              <span>Is it safe to switch to a generic for lifelong conditions like high blood pressure or diabetes?</span>
+              <svg class="faq-icon w-5 h-5 text-[#8DA4A2] transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </div>
+            <div class="faq-answer">
+              <p class="text-sm text-[#597371] pt-3 leading-relaxed border-t border-[#F2ECE1] mt-3">
+                Yes. In fact, clinical studies show that patients taking generic medications for chronic conditions have <em>higher</em> treatment adherence and fewer hospital visits. Why? Because when a monthly prescription costs ₹300 instead of ₹1,800, patients never delay refills or skip doses to save money.
+              </p>
+            </div>
+          </div>
+
+          <!-- FAQ 5 -->
+          <div class="faq-item bg-white rounded-2xl border border-[#E5DFD3] p-6">
+            <div class="faq-question flex items-center justify-between font-bold text-[#142322] text-base sm:text-lg">
+              <span>Why does EQUA never use the word "cheap"?</span>
+              <svg class="faq-icon w-5 h-5 text-[#8DA4A2] transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </div>
+            <div class="faq-answer">
+              <p class="text-sm text-[#597371] pt-3 leading-relaxed border-t border-[#F2ECE1] mt-3">
+                Because language matters. In everyday life, "cheap" suggests something made with shortcuts, corners cut, or inferior materials. Equal medicine is not a shortcut. It is the exact molecular standard, priced fairly because the original patent monopoly expired. We believe in <strong>fair price</strong>, never compromise.
+              </p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION 8: COMMUNITY VOICES -->
+    <section class="py-16 bg-white border-b border-[#E5DFD3]">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          
+          <div class="p-6 rounded-2xl bg-[#FAF8F5] border border-[#E5DFD3] space-y-4">
+            <div class="flex items-center gap-1 text-[#EB6B47]">
+              <span>&starf;&starf;&starf;&starf;&starf;</span>
+            </div>
+            <p class="text-xs text-[#2B3D3B] leading-relaxed italic">
+              "My father has been taking BP medicine for 12 years. Our chemist switch to Telmisartan saved us ₹1,400 every month. His pressure readings remain perfectly within range."
+            </p>
+            <div class="text-xs">
+              <strong class="text-[#142322] block">Sunil M.</strong>
+              <span class="text-[#597371]">Caregiver & Son, Pune</span>
+            </div>
+          </div>
+
+          <div class="p-6 rounded-2xl bg-[#FAF8F5] border border-[#E5DFD3] space-y-4">
+            <div class="flex items-center gap-1 text-[#2BB3A4]">
+              <span>&starf;&starf;&starf;&starf;&starf;</span>
+            </div>
+            <p class="text-xs text-[#2B3D3B] leading-relaxed italic">
+              "As a physician, I welcome patients who ask about generic salts. When a family can afford their monthly medicine without stress, they don't stop taking it after three months."
+            </p>
+            <div class="text-xs">
+              <strong class="text-[#142322] block">Dr. A. Sen, MD</strong>
+              <span class="text-[#597371]">Consultant Physician</span>
+            </div>
+          </div>
+
+          <div class="p-6 rounded-2xl bg-[#FAF8F5] border border-[#E5DFD3] space-y-4">
+            <div class="flex items-center gap-1 text-[#0A4A48]">
+              <span>&starf;&starf;&starf;&starf;&starf;</span>
+            </div>
+            <p class="text-xs text-[#2B3D3B] leading-relaxed italic">
+              "EQUA explains what we pharmacists have known for decades: the active molecule is what counts. Clear information transforms hesitation into confidence."
+            </p>
+            <div class="text-xs">
+              <strong class="text-[#142322] block">Ramesh Patel, M.Pharm</strong>
+              <span class="text-[#597371]">Community Pharmacist (24 years)</span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- STICKY FLOATING SLIP BAR (Appears when items are selected) -->
+  <div id="stickyDoctorSlipBar" class="hidden fixed bottom-6 left-1/2 -translate-x-1/2 z-30 max-w-md w-[92%] bg-[#0A4A48] text-white p-4 rounded-2xl shadow-2xl border border-[#11605D] flex items-center justify-between no-print animate-bounce-in">
+    <div class="flex items-center gap-3">
+      <div class="w-8 h-8 rounded-full bg-[#2BB3A4] text-white font-extrabold text-xs flex items-center justify-center">
+        <span id="stickySlipCount">0</span>
+      </div>
+      <div class="text-xs">
+        <strong class="block text-white">Medicines on Your Slip</strong>
+        <span class="text-[#E7F8F6]">Ready for doctor consultation</span>
+      </div>
+    </div>
+    <button class="open-doctor-slip bg-[#EB6B47] hover:bg-[#D85633] text-white text-xs font-bold px-4 py-2 rounded-xl transition">
+      View Slip
+    </button>
+  </div>
+
+  <!-- DOCTOR DISCUSSION SLIP MODAL -->
+  <div id="doctorSlipModal" class="hidden fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="bg-white rounded-3xl max-w-2xl w-full p-6 sm:p-8 max-h-[90vh] overflow-y-auto border border-[#E5DFD3] shadow-2xl relative">
+      
+      <!-- Close button -->
+      <button id="closeDoctorSlip" class="absolute top-6 right-6 text-[#8DA4A2] hover:text-[#142322] p-2 no-print">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+
+      <!-- Slip Header -->
+      <div class="flex items-center gap-3 pb-4 border-b border-[#F2ECE1] mb-6">
+        <img src="assets/logo-icon.svg" alt="EQUA" class="w-8 h-8">
+        <div>
+          <h3 class="text-xl font-extrabold text-[#0A4A48]">Doctor Consultation Slip</h3>
+          <p class="text-xs text-[#597371]">Bring this card to your next appointment with your physician</p>
+        </div>
+      </div>
+
+      <!-- Empty State -->
+      <div id="doctorSlipEmpty" class="text-center py-10">
+        <div class="w-12 h-12 rounded-full bg-[#EBF5F4] text-[#0A4A48] flex items-center justify-center mx-auto mb-3 font-bold text-lg">!</div>
+        <h4 class="font-bold text-[#142322] text-base">No medicines added to your slip yet</h4>
+        <p class="text-xs text-[#597371] max-w-sm mx-auto mt-1 mb-6">
+          Scroll to the "Check Your Medicine" section and click "Add to Doctor Discussion Slip" on any medication you take.
+        </p>
+        <button onclick="document.getElementById('doctorSlipModal').classList.add('hidden')" class="px-5 py-2.5 rounded-xl bg-[#0A4A48] text-white text-xs font-bold no-print">
+          Browse Medicines
+        </button>
+      </div>
+
+      <!-- Dynamic Item List -->
+      <div id="doctorSlipItemList" class="space-y-3 mb-6"></div>
+
+      <!-- Doctor Discussion Note -->
+      <div class="bg-[#FAF8F5] p-4 rounded-2xl border border-[#EDE7DD] mb-6 space-y-2 text-xs">
+        <strong class="text-[#0A4A48] block">Questions to politely discuss with your doctor:</strong>
+        <p class="text-[#597371] leading-relaxed">
+          1. "Doctor, are these active generic molecules suitable for continuing my daily therapy?"<br>
+          2. "Can you endorse the generic salt name on my prescription slip so I may purchase certified bioequivalent versions?"
+        </p>
+      </div>
+
+      <!-- Financial Relief Summary -->
+      <div class="flex items-center justify-between p-4 bg-[#EBF5F4] rounded-2xl border border-[#B8E4DF] mb-6">
+        <div>
+          <span class="text-xs text-[#597371] block">Estimated Annual Family Savings:</span>
+          <span class="text-xs font-semibold text-[#0A4A48]">Based on regular 30-day refills</span>
+        </div>
+        <span id="doctorSlipTotalSavings" class="text-2xl font-black text-[#EB6B47]">₹0</span>
+      </div>
+
+      <!-- Modal Footer Actions -->
+      <div class="flex items-center justify-end gap-3 no-print">
+        <button onclick="document.getElementById('doctorSlipModal').classList.add('hidden')" class="px-5 py-2.5 rounded-xl text-xs font-bold text-[#597371] hover:text-[#142322] transition">
+          Close
+        </button>
+        <button id="printDoctorSlip" class="bg-[#0A4A48] hover:bg-[#11605D] text-white text-xs font-bold px-6 py-2.5 rounded-xl flex items-center gap-2 shadow-sm transition">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/></svg>
+          Print / Save Discussion Slip
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="bg-[#073433] text-[#E7F8F6] pt-16 pb-12 border-t border-[#11605D]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-10 pb-12 border-b border-[#11605D]">
+        
+        <!-- Brand identity -->
+        <div class="md:col-span-5 space-y-4">
+          <div class="h-10 w-auto">
+            <img src="assets/logo-white.svg" alt="EQUA Logo" class="h-10 w-auto object-contain" />
+          </div>
+          <p class="text-xs text-[#8DA4A2] leading-relaxed max-w-sm">
+            EQUA stands for a healthcare experience where clarity builds confidence and price doesn't determine perceived quality. Equal Medicine, Explained.
+          </p>
+          <div class="flex items-center gap-3 pt-2 text-xs font-semibold text-[#2BB3A4]">
+            <span>Equality &bull; Fairness &bull; Balance</span>
+          </div>
+        </div>
+
+        <!-- Links -->
+        <div class="md:col-span-3 space-y-3">
+          <h4 class="text-xs font-bold uppercase tracking-wider text-white">Understand & Compare</h4>
+          <ul class="space-y-2 text-xs text-[#8DA4A2]">
+            <li><a href="#understanding" class="hover:text-white transition">The 3 Pillars of EQUA</a></li>
+            <li><a href="#how-it-works" class="hover:text-white transition">Inside the Medicine (API & Excipients)</a></li>
+            <li><a href="#honest-math" class="hover:text-white transition">The Honest Math: Why It Costs Less</a></li>
+            <li><a href="#explorer" class="hover:text-white transition">Explore Common Generic Salts</a></li>
+          </ul>
+        </div>
+
+        <!-- Doctor & Patient Collaboration -->
+        <div class="md:col-span-4 space-y-3">
+          <h4 class="text-xs font-bold uppercase tracking-wider text-white">Clinical Dialogue</h4>
+          <p class="text-xs text-[#8DA4A2] leading-relaxed">
+            Our purpose is to make choosing an equal medicine feel as safe and ordinary as any other choice, by replacing doubt with clear, checkable understanding.
+          </p>
+          <div class="p-3.5 rounded-xl bg-[#0A4A48] border border-[#11605D] text-xs">
+            <span class="text-white font-bold block mb-1">Collaborative Care</span>
+            <span class="text-[#8DA4A2]">Always consult your doctor or registered medical practitioner before altering or discontinuing any prescribed treatment.</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Copyright & Disclaimer -->
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-[#597371] gap-4">
+        <div>
+          &copy; 2026 EQUA Health. All rights reserved. Equal Medicine, Explained.
+        </div>
+        <div class="text-center sm:text-right text-[11px] text-[#597371]">
+          No login required. Public healthcare knowledge initiative.
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Core App Logic -->
+  <script src="app.js"></script>
+</body>
+</html>
