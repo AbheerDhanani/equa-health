@@ -1,10 +1,373 @@
-// EQUA Paracetamol Oral Suspension: 3D Pack Renderer
-// Interactive WebGL Three.js Pack Model
+// EQUA 3D Interactive Medicine Models (Tablet Strip & Syrup Bottle)
+// Powered by Three.js WebGL
 
-function initPack3D() {
-  const wrap = document.getElementById('threeDContainer');
-  const cv = document.getElementById('threeDCanvas');
-  const tooltip = document.getElementById('threeDTooltip');
+// -------------------------------------------------------------
+// 1. EQUA PARACETAMOL TABLET STRIP 3D
+// -------------------------------------------------------------
+function initTabletStrip3D() {
+  const wrap = document.getElementById('stripWrap');
+  const cv = document.getElementById('stripCanvas');
+  const tt = document.getElementById('stripTooltip');
+  if (!wrap || !cv || typeof THREE === 'undefined') return;
+
+  const TEAL = '#0A4A48', SAND = '#FBF8F2', CORAL = '#EB6B47', GREEN = '#1F7A4A', INK = '#142322';
+  let sd = 7;
+  const rnd = () => (sd = sd * 16807 % 2147483647) / 2147483647;
+  const ci = (x, y, r) => `M${x-r} ${y}a${r} ${r} 0 1 0 ${2*r} 0a${r} ${r} 0 1 0 ${-2*r} 0`;
+  const IC = {
+    thermo: 'M40 22a10 10 0 0 1 20 0V58a18 18 0 1 1 -20 0ZM50 74V34',
+    doctor: ci(50, 28, 14) + 'M22 90V70A28 24 0 0 1 78 70V90M50 62V80M41 71H59'
+  };
+
+  function icon(g, n, x, y, s, col, lw = 7) {
+    g.save();
+    g.translate(x, y);
+    g.scale(s / 100, s / 100);
+    g.strokeStyle = col;
+    g.lineWidth = lw;
+    g.lineCap = g.lineJoin = 'round';
+    g.stroke(new Path2D(IC[n]));
+    g.restore();
+  }
+
+  function logo(g, x, y, h, col, tc) {
+    g.save();
+    g.translate(x, y);
+    g.scale(h / 100, h / 100);
+    g.lineWidth = 13;
+    g.lineCap = g.lineJoin = 'round';
+    g.strokeStyle = col;
+    g.stroke(new Path2D('M60 10H14V90H60M14 50H52' + ci(130, 50, 40) + 'M200 10V58A30 30 0 0 0 260 58V10M285 90L315 10L345 90M297 64H333'));
+    g.strokeStyle = tc;
+    g.stroke(new Path2D('M112 54L128 70L162 30'));
+    g.restore();
+  }
+
+  function rr(g, x, y, w, h, r, f, s, lw = 4) {
+    g.beginPath();
+    g.roundRect ? g.roundRect(x, y, w, h, r) : g.rect(x, y, w, h);
+    if (f) { g.fillStyle = f; g.fill(); }
+    if (s) { g.strokeStyle = s; g.lineWidth = lw; g.stroke(); }
+  }
+
+  function tx(g, t, x, y, sz, col, w = 400, al = 'left', f = 'Plus Jakarta Sans') {
+    g.font = `${w} ${sz}px '${f}',sans-serif`;
+    g.fillStyle = col;
+    g.textAlign = al;
+    g.textBaseline = 'alphabetic';
+    g.fillText(t, x, y);
+  }
+
+  const mk = (w, h) => {
+    const c = document.createElement('canvas');
+    c.width = w;
+    c.height = h;
+    return [c, c.getContext('2d')];
+  };
+
+  const W = 2560, Hh = 1280, CX = [600, 992, 1384, 1776, 2168], CY = [470, 950], PF = [796, 1188, 1580, 1972];
+  const dots = (g, x, a, b, col) => {
+    g.fillStyle = col;
+    for (let y = a; y < b; y += 26) g.fillRect(x - 3, y, 6, 12);
+  };
+
+  function foilBase(g, top) {
+    const gr = g.createLinearGradient(0, 0, 0, Hh);
+    gr.addColorStop(0, top[0]);
+    gr.addColorStop(.5, top[1]);
+    gr.addColorStop(1, top[0]);
+    g.fillStyle = gr;
+    g.fillRect(0, 0, W, Hh);
+    for (let i = 0; i < 350; i++) {
+      g.fillStyle = `rgba(255,255,255,${rnd() * .28})`;
+      g.fillRect(0, rnd() * Hh, W, 1);
+    }
+  }
+
+  function foil() {
+    const [c, g] = mk(W, Hh);
+    g.save();
+    rr(g, 0, 0, W, Hh, 64);
+    g.clip();
+    foilBase(g, ['#cdd5d9', '#f6f8f8']);
+    g.fillStyle = TEAL;
+    g.fillRect(0, 0, W, 140);
+    logo(g, 40, 22, 96, '#fff', CORAL);
+    tx(g, 'Paracetamol Tablets IP 500 mg', 1450, 92, 56, '#fff', 700, 'center');
+    tx(g, '10 tablets', 2520, 90, 44, SAND, 700, 'right');
+    g.fillStyle = SAND;
+    g.fillRect(0, 140, W, 120);
+    icon(g, 'thermo', 50, 150, 100, TEAL, 7);
+    tx(g, 'For fever and pain', 190, 222, 64, TEAL, 700, 'left');
+    tx(g, 'Same medicine as the branded one  ·  Every batch is tested in certified labs', 2520, 215, 38, TEAL, 700, 'right');
+    g.fillStyle = TEAL;
+    g.fillRect(0, 260, 360, 900);
+    [['BATCH', 'EQ-0426-A1', 320], ['MFG', '04/2026', 440]].forEach(([l, v, y]) => {
+      tx(g, l, 40, y, 28, SAND, 700);
+      tx(g, v, 40, y + 48, 40, '#fff', 700, 'left');
+    });
+    rr(g, 24, 530, 312, 190, 24, CORAL);
+    tx(g, 'EXP', 48, 582, 32, '#fff', 700, 'left');
+    tx(g, '03/2028', 180, 680, 58, '#fff', 700, 'center');
+    tx(g, 'MRP', 40, 790, 28, SAND, 700);
+    tx(g, '₹ 14.00', 40, 838, 40, '#fff', 700, 'left');
+    tx(g, 'Verified Batch Record', 40, 1130, 24, SAND, 400);
+    CX.forEach(x => {
+      tx(g, 'Paracetamol', x, 704, 40, TEAL, 700, 'center');
+      tx(g, '500 mg', x, 750, 36, INK, 700, 'center');
+    });
+    PF.forEach(x => dots(g, x, 270, 1150, 'rgba(34,49,58,.5)'));
+    g.fillStyle = CORAL;
+    g.fillRect(0, 1160, W, 120);
+    icon(g, 'doctor', 40, 1166, 108, '#fff', 7);
+    tx(g, 'Not sure? Ask your doctor or pharmacist.', 170, 1235, 54, '#fff', 700, 'left');
+    tx(g, 'Keep out of reach of children', 2520, 1210, 36, '#fff', 700, 'right');
+    tx(g, 'बच्चों की पहुँच से दूर रखें', 2520, 1255, 34, '#fff', 700, 'right');
+    g.restore();
+    return c;
+  }
+
+  function back() {
+    const [c, g] = mk(W, Hh);
+    g.save();
+    rr(g, 0, 0, W, Hh, 64);
+    g.clip();
+    foilBase(g, ['#c3ccd1', '#eef1f2']);
+    g.save();
+    g.translate(W, 0);
+    g.scale(-1, 1);
+    g.strokeStyle = 'rgba(60,75,85,.18)';
+    g.lineWidth = 2;
+    for (let i = -Hh; i < W; i += 22) {
+      g.beginPath();
+      g.moveTo(i, 0);
+      g.lineTo(i + Hh, Hh);
+      g.stroke();
+    }
+    CX.forEach(x => CY.forEach(y => {
+      g.fillStyle = '#e9eef0';
+      g.beginPath();
+      g.arc(x, y, 175, 0, 7);
+      g.fill();
+      g.strokeStyle = 'rgba(60,75,85,.45)';
+      g.lineWidth = 4;
+      g.beginPath();
+      g.arc(x, y, 175, 0, 7);
+      g.stroke();
+      g.beginPath();
+      g.arc(x, y, 160, 0, 7);
+      g.stroke();
+    }));
+    PF.forEach(x => dots(g, x, 130, 1130, 'rgba(34,49,58,.5)'));
+    g.restore();
+    tx(g, 'Do not use if a blister is open or damaged.', 1280, 80, 44, '#6b787e', 700, 'center');
+    tx(g, 'EQUA   ·   Paracetamol 500 mg   ·   10 tablets', 1280, 1235, 44, '#6b787e', 700, 'center');
+    g.restore();
+    return c;
+  }
+
+  const R = new THREE.WebGLRenderer({ canvas: cv, antialias: true, alpha: true });
+  R.outputEncoding = THREE.sRGBEncoding;
+  R.setPixelRatio(Math.min(2, window.devicePixelRatio || 1));
+  const S = new THREE.Scene();
+  const cam = new THREE.PerspectiveCamera(36, 1, .1, 60);
+  S.add(new THREE.HemisphereLight(0xffffff, 0x998877, .9));
+  const dl = new THREE.DirectionalLight(0xffffff, .8);
+  dl.position.set(3, 5, 6);
+  S.add(dl);
+  const dl2 = new THREE.DirectionalLight(0xffffff, .5);
+  dl2.position.set(-3, 2, -6);
+  S.add(dl2);
+
+  const tex = c => {
+    const t = new THREE.CanvasTexture(c);
+    t.encoding = THREE.sRGBEncoding;
+    t.anisotropy = 8;
+    return t;
+  };
+
+  const B = new THREE.Group();
+  S.add(B);
+
+  function build() {
+    const w = 3.2, h = 1.6, r = .16, sh = new THREE.Shape();
+    sh.moveTo(-w + r, -h);
+    sh.lineTo(w - r, -h);
+    sh.quadraticCurveTo(w, -h, w, -h + r);
+    sh.lineTo(w, h - r);
+    sh.quadraticCurveTo(w, h, w - r, h);
+    sh.lineTo(-w + r, h);
+    sh.quadraticCurveTo(-w, h, -w, h - r);
+    sh.lineTo(-w, -h + r);
+    sh.quadraticCurveTo(-w, -h, -w + r, -h);
+    const eg = new THREE.ExtrudeGeometry(sh, { depth: .05, bevelEnabled: false });
+    eg.translate(0, 0, -.025);
+    B.add(new THREE.Mesh(eg, new THREE.MeshPhongMaterial({ color: 0xaab4b9, shininess: 80 })));
+
+    const fm = new THREE.Mesh(new THREE.PlaneGeometry(6.4, 3.2), new THREE.MeshPhongMaterial({ map: tex(foil()), alphaTest: .5, shininess: 110, specular: 0x888888 }));
+    fm.position.z = .0255;
+    B.add(fm);
+
+    const bm = new THREE.Mesh(new THREE.PlaneGeometry(6.4, 3.2), new THREE.MeshPhongMaterial({ map: tex(back()), alphaTest: .5, shininess: 110, specular: 0x888888 }));
+    bm.position.z = -.0255;
+    bm.rotation.y = Math.PI;
+    B.add(bm);
+
+    const dm = new THREE.MeshPhongMaterial({ color: 0xffffff, transparent: true, opacity: .3, shininess: 140, specular: 0xffffff, side: THREE.DoubleSide, depthWrite: false });
+    const tm = new THREE.MeshPhongMaterial({ color: 0xfafafa, shininess: 25 });
+    CX.forEach(px => CY.forEach(py => {
+      const x = (px - 1280) / 400 + 0, y = (640 - py) / 400;
+      const d = new THREE.Mesh(new THREE.SphereGeometry(.4, 40, 16, 0, Math.PI * 2, 0, Math.PI / 2), dm);
+      d.scale.set(1, .55, 1);
+      d.rotation.x = -Math.PI / 2;
+      d.position.set(x, y, -.025);
+      d.renderOrder = 2;
+      B.add(d);
+      const t = new THREE.Mesh(new THREE.CylinderGeometry(.29, .29, .1, 40), tm);
+      t.rotation.x = Math.PI / 2;
+      t.position.set(x, y, -.1);
+      B.add(t);
+    }));
+  }
+
+  const V = {
+    foil: { ry: 0, rx: 0, z: 7.6, ty: 0, x: 0, t: 'Foil side: product name on every tablet, doctor strip, and the batch, MFG, EXP, MRP panel.' },
+    blister: { ry: Math.PI, rx: 0, z: 7.6, ty: 0, x: 0, t: 'Blister side: tablets visible in clear protective cells. Dotted lines show tear perforations.' },
+    angle: { ry: Math.PI - .9, rx: .25, z: 6.4, ty: 0, x: 0, t: 'Angle view: the raised blister cells and the tablets sitting securely inside.' },
+    batch: { ry: 0, rx: 0, z: 3.8, ty: 0, x: -2.2, t: 'Batch number, manufacturing date, expiry (EXP) and verified MRP panel.' }
+  };
+
+  const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
+  let ry = 0, tr = 0, rx = 0, trx = 0, vel = 0, z = 7.6, tz = 7.6, ty = 0, tty = 0, px = 0, tpx = 0, drag = false, lx = 0, ly = 0, lt = 0, spin = false, anim = false, pd = 0;
+  const ptr = new Map(), sp = document.getElementById('stripSpin'), btns = document.querySelectorAll('#stripControls button');
+
+  function go(k) {
+    const v = V[k];
+    if (!v) return;
+    spin = false;
+    if (sp) sp.checked = false;
+    vel = 0;
+    anim = true;
+    tr = Math.round((ry - v.ry) / 6.2832) * 6.2832 + v.ry;
+    trx = v.rx;
+    tz = v.z;
+    tty = v.ty;
+    tpx = v.x;
+    if (tt) tt.textContent = v.t;
+    btns.forEach(b => b.classList.toggle('on', b.dataset.v == k));
+  }
+
+  btns.forEach(b => b.onclick = () => go(b.dataset.v));
+  if (sp) sp.onchange = () => {
+    spin = sp.checked;
+    if (spin) { anim = false; vel = 0; btns.forEach(b => b.classList.remove('on')); }
+  };
+
+  const dist = () => {
+    const [a, b] = [...ptr.values()];
+    return Math.hypot(a.clientX - b.clientX, a.clientY - b.clientY);
+  };
+
+  cv.onpointerdown = e => {
+    ptr.set(e.pointerId, e);
+    try { cv.setPointerCapture(e.pointerId); } catch (_) {}
+    anim = false; vel = 0;
+    if (ptr.size == 1) { drag = true; lx = e.clientX; ly = e.clientY; lt = performance.now(); }
+    else if (ptr.size == 2) { drag = false; pd = dist(); }
+    cv.style.cursor = 'grabbing';
+  };
+
+  cv.onpointermove = e => {
+    if (!ptr.has(e.pointerId)) return;
+    ptr.set(e.pointerId, e);
+    if (ptr.size == 2) {
+      const d = dist();
+      if (d > 0 && pd > 0) tz = clamp(tz * pd / d, 3, 14);
+      pd = d;
+      return;
+    }
+    if (drag) {
+      const dx = e.clientX - lx, n = performance.now(), dt = Math.max(1, n - lt) / 1000;
+      ry += dx * .008;
+      rx = clamp(rx + (e.clientY - ly) * .006, -.7, .7);
+      trx = rx;
+      vel = clamp(.7 * vel + .3 * (dx * .008 / dt), -5, 5);
+      lx = e.clientX; ly = e.clientY; lt = n;
+    }
+  };
+
+  const end = e => {
+    ptr.delete(e.pointerId);
+    if (ptr.size == 1) {
+      drag = true;
+      const q = [...ptr.values()][0];
+      lx = q.clientX; ly = q.clientY; lt = performance.now();
+    } else {
+      drag = false;
+      if (performance.now() - lt > 90) vel = 0;
+    }
+    cv.style.cursor = 'grab';
+  };
+
+  cv.onpointerup = end;
+  cv.onpointercancel = end;
+  cv.addEventListener('wheel', e => {
+    e.preventDefault();
+    tz = clamp(tz + e.deltaY * .005, 3, 14);
+  }, { passive: false });
+
+  function rs() {
+    const w = wrap.clientWidth, h = wrap.clientHeight;
+    if (!w || !h) return;
+    R.setSize(w, h, false);
+    cam.aspect = w / h;
+    cam.updateProjectionMatrix();
+  }
+  window.addEventListener('resize', rs);
+
+  let last = 0;
+  function loop(now) {
+    requestAnimationFrame(loop);
+    const dt = Math.min(.05, Math.max(0, (now - last) / 1000) || 0);
+    last = now;
+    if (!drag) {
+      if (anim) {
+        const k2 = 1 - Math.exp(-8 * dt), d = tr - ry;
+        ry += d * k2;
+        rx += (trx - rx) * k2;
+        if (Math.abs(d) < .002 && Math.abs(trx - rx) < .002) { ry = tr; rx = trx; anim = false; }
+      } else if (spin) {
+        ry += .7 * dt;
+      } else if (Math.abs(vel) > .02) {
+        ry += vel * dt;
+        vel *= Math.exp(-4.5 * dt);
+      } else vel = 0;
+    }
+    const k = 1 - Math.exp(-8 * dt);
+    z += (tz - z) * k;
+    ty += (tty - ty) * k;
+    px += (tpx - px) * k;
+    const fit = Math.max(1, 1.45 / cam.aspect);
+    B.rotation.y = ry;
+    B.rotation.x = rx;
+    cam.position.set(px, ty, z * fit);
+    cam.lookAt(px, ty, 0);
+    R.render(S, cam);
+  }
+
+  build();
+  rs();
+  go('foil');
+  requestAnimationFrame(loop);
+}
+
+// -------------------------------------------------------------
+// 2. EQUA PARACETAMOL ORAL SUSPENSION (SYRUP BOTTLE) 3D
+// -------------------------------------------------------------
+function initSyrupBottle3D() {
+  const wrap = document.getElementById('bottleWrap');
+  const cv = document.getElementById('bottleCanvas');
+  const tooltip = document.getElementById('bottleTooltip');
   if (!wrap || !cv || typeof THREE === 'undefined') return;
 
   const TEAL = '#0A4A48', SAND = '#FBF8F2', CORAL = '#EB6B47', GREEN = '#1F7A4A', INK = '#142322';
@@ -337,7 +700,7 @@ function initPack3D() {
     side: { ry: Math.PI / 2, z: 8.4, ty: 2.1, x: .9, t: 'Side: amber bottle, liquid level and label edges. Dosing cup beside.' }
   };
 
-  let ry = 0, tr = 0, z = 8.4, tz = 8.4, ty = 2.1, tty = 2.1, px = .9, tpx = .9, drag = false, lx = 0, spin = false;
+  let ry = 0, tr = 0, vel = 0, z = 8.4, tz = 8.4, ty = 2.1, tty = 2.1, px = .9, tpx = .9, drag = false, lx = 0, lt = 0, spin = false;
 
   function go(k) {
     const v = V[k];
@@ -347,14 +710,14 @@ function initPack3D() {
     tty = v.ty;
     tpx = v.x;
     if (tooltip) tooltip.textContent = v.t;
-    document.querySelectorAll('#threeDControls button').forEach(b => b.classList.toggle('on', b.dataset.v == k));
+    document.querySelectorAll('#bottleControls button').forEach(b => b.classList.toggle('on', b.dataset.v == k));
   }
 
-  document.querySelectorAll('#threeDControls button').forEach(b => {
+  document.querySelectorAll('#bottleControls button').forEach(b => {
     b.onclick = () => go(b.dataset.v);
   });
 
-  const spCheck = document.getElementById('threeDSpin');
+  const spCheck = document.getElementById('bottleSpin');
   if (spCheck) spCheck.onchange = e => spin = e.target.checked;
 
   cv.onpointerdown = e => {
@@ -381,6 +744,7 @@ function initPack3D() {
   function rs() {
     const w = wrap.clientWidth;
     const h = wrap.clientHeight;
+    if (!w || !h) return;
     R.setSize(w, h, false);
     cam.aspect = w / h;
     cam.updateProjectionMatrix();
@@ -395,6 +759,7 @@ function initPack3D() {
     ty += (tty - ty) * .1;
     px += (tpx - px) * .1;
     const narrow = cam.aspect < 1, cx = narrow ? 0 : px;
+    B.rotation.y = ry;
     B.position.x = 0;
     cam.position.set(cx, ty, narrow ? z * 1.5 : z);
     cam.lookAt(cx, ty, 0);
@@ -407,5 +772,48 @@ function initPack3D() {
   loop();
 }
 
-// Attach to global scope for invocation
-window.initPack3D = initPack3D;
+// -------------------------------------------------------------
+// 3. TAB CONTROLLER TO SWITCH BETWEEN TABLET STRIP AND SYRUP
+// -------------------------------------------------------------
+let stripStarted = false;
+let bottleStarted = false;
+
+window.switch3DModel = function(modelType) {
+  const tabStrip = document.getElementById('tabStripBtn');
+  const tabBottle = document.getElementById('tabBottleBtn');
+  const stageStrip = document.getElementById('stageStrip');
+  const stageBottle = document.getElementById('stageBottle');
+
+  if (modelType === 'strip') {
+    tabStrip.classList.add('bg-[#0A4A48]', 'text-white');
+    tabStrip.classList.remove('bg-white', 'text-[#2B3D3B]');
+    tabBottle.classList.remove('bg-[#0A4A48]', 'text-white');
+    tabBottle.classList.add('bg-white', 'text-[#2B3D3B]');
+
+    stageStrip.classList.remove('hidden');
+    stageBottle.classList.add('hidden');
+
+    if (!stripStarted) {
+      stripStarted = true;
+      setTimeout(initTabletStrip3D, 50);
+    }
+  } else {
+    tabBottle.classList.add('bg-[#0A4A48]', 'text-white');
+    tabBottle.classList.remove('bg-white', 'text-[#2B3D3B]');
+    tabStrip.classList.remove('bg-[#0A4A48]', 'text-white');
+    tabStrip.classList.add('bg-white', 'text-[#2B3D3B]');
+
+    stageBottle.classList.remove('hidden');
+    stageStrip.classList.add('hidden');
+
+    if (!bottleStarted) {
+      bottleStarted = true;
+      setTimeout(initSyrupBottle3D, 50);
+    }
+  }
+};
+
+window.initBoth3D = function() {
+  // Start with tablet strip by default
+  window.switch3DModel('strip');
+};

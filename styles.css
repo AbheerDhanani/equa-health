@@ -105,6 +105,41 @@ h1, h2, h3, h4, h5, h6 {
   color: #FFFFFF;
 }
 
+#stripWrap, #bottleWrap {
+  width: 100%;
+  height: 480px;
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  background: radial-gradient(circle at center, #FBF8F2 0%, #EFE8DA 100%);
+  border: 1px solid var(--equa-border);
+}
+
+#stripCanvas, #bottleCanvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  touch-action: none;
+  cursor: grab;
+}
+
+#stripCanvas:active, #bottleCanvas:active {
+  cursor: grabbing;
+}
+
+.cat-pill {
+  transition: all 0.15s ease;
+  user-select: none;
+}
+
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-none {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
 .pack-hotspot {
   cursor: pointer;
   transition: all 0.2s ease;

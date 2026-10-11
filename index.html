@@ -61,9 +61,10 @@
   <header class="sticky top-0 z-40 bg-[#FBF8F2]/95 backdrop-blur-md border-b border-[#E5DFD3]">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
       
-      <!-- Brand Logo -->
-      <a href="#" class="flex items-center gap-3">
-        <img src="assets/logo.svg" alt="EQUA - Clear Choice. Fair Price." class="h-10 w-auto" />
+      <!-- Brand Logo: Other logo at the top left as requested -->
+      <a href="#" class="flex items-center gap-3 group" aria-label="EQUA Home">
+        <img src="assets/badge-logo.png" alt="EQUA Brand Mark" class="h-10 w-10 object-contain rounded-full shadow-sm" />
+        <span class="font-extrabold text-[#0A4A48] text-2xl tracking-tight">EQUA</span>
       </a>
 
       <!-- Navigation Anchors for the 10 Sections -->
@@ -94,10 +95,15 @@
 
   <main>
 
-    <!-- SECTION 1: HERO -->
+    <!-- SECTION 1: HERO (Main Logo showcased on open) -->
     <section class="py-16 sm:py-24 bg-[#FBF8F2] border-b border-[#E5DFD3]">
       <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
         
+        <!-- Main Logo front and center when you open the website -->
+        <div class="max-w-sm sm:max-w-md mx-auto mb-4">
+          <img src="assets/logo.svg" alt="EQUA - Clear Choice. Fair Price." class="w-72 sm:w-84 max-w-full mx-auto object-contain drop-shadow-sm" />
+        </div>
+
         <div class="inline-block px-3.5 py-1 rounded-full bg-[#EBF5F4] border border-[#CDE5E3] text-xs font-bold text-[#0A4A48]">
           Equal medicine, explained
         </div>
@@ -111,7 +117,7 @@
         </p>
 
         <!-- Two Buttons: Check my medicine & Call us -->
-        <div class="flex flex-wrap items-center justify-center gap-4 pt-4">
+        <div class="flex flex-wrap items-center justify-center gap-4 pt-2">
           <a 
             href="#checker" 
             class="bg-[#0A4A48] hover:bg-[#11605D] text-white px-7 py-3.5 rounded-xl font-bold text-sm shadow-sm transition"
@@ -150,17 +156,36 @@
         </div>
 
         <!-- Search Box -->
-        <div class="max-w-2xl mx-auto mb-10">
+        <div class="max-w-3xl mx-auto mb-6">
           <div class="relative">
             <input 
               type="text" 
               id="checkerSearch"
-              placeholder="Type your brand (e.g., Telma, Glycomet, Lipitor, Pan 40, Dolo)..." 
+              placeholder="Search by brand (e.g. Telma, Glycomet, Lipitor, Pan 40, Dolo, Augmentin, Thyronorm)..." 
               class="w-full px-5 py-4 pl-12 rounded-2xl bg-[#FAF8F5] border border-[#CBD8D6] focus:border-[#0A4A48] focus:bg-white text-sm outline-none shadow-sm transition"
             >
             <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-[#8DA4A2]">
               <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
             </div>
+          </div>
+        </div>
+
+        <!-- Category Filter Pills & Counter -->
+        <div class="max-w-4xl mx-auto mb-8">
+          <div class="flex items-center justify-between mb-2.5 text-xs">
+            <span class="font-bold text-[#597371] uppercase tracking-wider">Filter by category:</span>
+            <span id="medicineCountBadge" class="font-bold text-[#0A4A48] bg-[#EBF5F4] px-2.5 py-0.5 rounded-full border border-[#CDE5E3]">25 medicines</span>
+          </div>
+          <div class="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none text-xs font-semibold">
+            <button class="cat-pill bg-[#0A4A48] text-white px-3.5 py-1.5 rounded-xl border border-[#0A4A48] whitespace-nowrap transition" data-category="all">All Medicines</button>
+            <button class="cat-pill bg-white text-[#2B3D3B] px-3.5 py-1.5 rounded-xl border border-[#E5DFD3] hover:border-[#0A4A48] whitespace-nowrap transition" data-category="blood-pressure">Blood Pressure</button>
+            <button class="cat-pill bg-white text-[#2B3D3B] px-3.5 py-1.5 rounded-xl border border-[#E5DFD3] hover:border-[#0A4A48] whitespace-nowrap transition" data-category="diabetes">Diabetes</button>
+            <button class="cat-pill bg-white text-[#2B3D3B] px-3.5 py-1.5 rounded-xl border border-[#E5DFD3] hover:border-[#0A4A48] whitespace-nowrap transition" data-category="cholesterol">Cholesterol & Heart</button>
+            <button class="cat-pill bg-white text-[#2B3D3B] px-3.5 py-1.5 rounded-xl border border-[#E5DFD3] hover:border-[#0A4A48] whitespace-nowrap transition" data-category="acidity">Acidity & Digestion</button>
+            <button class="cat-pill bg-white text-[#2B3D3B] px-3.5 py-1.5 rounded-xl border border-[#E5DFD3] hover:border-[#0A4A48] whitespace-nowrap transition" data-category="pain">Pain & Fever</button>
+            <button class="cat-pill bg-white text-[#2B3D3B] px-3.5 py-1.5 rounded-xl border border-[#E5DFD3] hover:border-[#0A4A48] whitespace-nowrap transition" data-category="respiratory">Allergy & Breathing</button>
+            <button class="cat-pill bg-white text-[#2B3D3B] px-3.5 py-1.5 rounded-xl border border-[#E5DFD3] hover:border-[#0A4A48] whitespace-nowrap transition" data-category="antibiotics">Infections & Antibiotics</button>
+            <button class="cat-pill bg-white text-[#2B3D3B] px-3.5 py-1.5 rounded-xl border border-[#E5DFD3] hover:border-[#0A4A48] whitespace-nowrap transition" data-category="thyroid">Thyroid</button>
           </div>
         </div>
 
@@ -391,32 +416,73 @@
           </p>
         </div>
 
-        <!-- 3D Model Interactive Stage -->
+        <!-- 3D Model Interactive Stage with Dual Medicine Switcher -->
         <div class="mb-12 bg-[#FAF8F5] p-6 sm:p-8 rounded-3xl border border-[#E5DFD3]">
-          <div class="flex flex-wrap items-center justify-between gap-4 mb-4 pb-3 border-b border-[#EDE7DD]">
+          
+          <!-- Medicine Type Switcher Tabs -->
+          <div class="flex flex-wrap items-center justify-between gap-4 mb-6 pb-4 border-b border-[#EDE7DD]">
             <div>
-              <h3 class="font-extrabold text-[#142322] text-lg">Interactive 3D Medicine Pack</h3>
-              <p class="text-xs text-[#597371]">Drag to rotate &bull; Scroll to zoom &bull; Real label typography & tamper-evident seal</p>
+              <span class="text-[11px] font-bold text-[#597371] uppercase tracking-wider block mb-1">Choose 3D Medicine to Inspect:</span>
+              <div class="flex items-center gap-2">
+                <button id="tabStripBtn" onclick="switch3DModel('strip')" class="px-4 py-2 rounded-xl font-bold text-xs bg-[#0A4A48] text-white transition shadow-sm">
+                  💊 Tablet Blister Strip (10 Tabs)
+                </button>
+                <button id="tabBottleBtn" onclick="switch3DModel('bottle')" class="px-4 py-2 rounded-xl font-bold text-xs bg-white text-[#2B3D3B] border border-[#CBD8D6] transition hover:border-[#0A4A48]">
+                  🧴 Oral Suspension Bottle (60 ml)
+                </button>
+              </div>
             </div>
-            
-            <!-- Viewpoint Controls -->
-            <div id="threeDControls" class="flex flex-wrap items-center gap-2">
-              <button data-v="front" class="view-btn on">Front label</button>
-              <button data-v="back" class="view-btn">Back label + expiry</button>
-              <button data-v="cap" class="view-btn">Cap + seal</button>
-              <button data-v="side" class="view-btn">Side</button>
-              <label class="text-xs font-bold text-[#0A4A48] flex items-center gap-1.5 ml-2 cursor-pointer">
-                <input type="checkbox" id="threeDSpin" class="cursor-pointer"> Auto-spin
-              </label>
+            <p class="text-xs text-[#597371] max-w-xs text-right hidden sm:block">
+              Drag to turn and tilt in 3D &bull; Scroll or pinch to zoom &bull; Inspect real packaging & batch records
+            </p>
+          </div>
+
+          <!-- Stage 1: Tablet Strip 3D -->
+          <div id="stageStrip">
+            <div class="flex flex-wrap items-center justify-between gap-3 mb-3">
+              <span class="text-xs font-bold text-[#142322]">EQUA Paracetamol Tablets IP 500mg: 3D Strip</span>
+              <div id="stripControls" class="flex flex-wrap items-center gap-2">
+                <button data-v="foil" class="view-btn on">Foil side</button>
+                <button data-v="blister" class="view-btn">Blister side</button>
+                <button data-v="angle" class="view-btn">Angle</button>
+                <button data-v="batch" class="view-btn">Batch + EXP</button>
+                <label class="text-xs font-bold text-[#0A4A48] flex items-center gap-1.5 ml-2 cursor-pointer">
+                  <input type="checkbox" id="stripSpin" class="cursor-pointer"> Auto-spin
+                </label>
+              </div>
+            </div>
+
+            <div id="stripWrap">
+              <canvas id="stripCanvas"></canvas>
+              <div id="stripTooltip" class="absolute left-4 bottom-4 bg-white/90 backdrop-blur-sm px-3.5 py-1.5 rounded-xl border border-[#CBD8D6] text-xs font-medium text-[#142322] shadow-sm max-w-[80%] pointer-events-none">
+                Foil side: product name on every tablet, doctor strip, and the batch, MFG, EXP, MRP panel.
+              </div>
             </div>
           </div>
 
-          <div id="threeDContainer">
-            <canvas id="threeDCanvas"></canvas>
-            <div id="threeDTooltip" class="absolute left-4 bottom-4 bg-white/90 backdrop-blur-sm px-3.5 py-1.5 rounded-xl border border-[#CBD8D6] text-xs font-medium text-[#142322] shadow-sm max-w-[80%] pointer-events-none">
-              Front: what it is, what it is for, and the doctor strip.
+          <!-- Stage 2: Syrup Bottle 3D -->
+          <div id="stageBottle" class="hidden">
+            <div class="flex flex-wrap items-center justify-between gap-3 mb-3">
+              <span class="text-xs font-bold text-[#142322]">EQUA Paracetamol Oral Suspension: 3D Amber Bottle</span>
+              <div id="bottleControls" class="flex flex-wrap items-center gap-2">
+                <button data-v="front" class="view-btn on">Front label</button>
+                <button data-v="back" class="view-btn">Back label + expiry</button>
+                <button data-v="cap" class="view-btn">Cap + seal</button>
+                <button data-v="side" class="view-btn">Side</button>
+                <label class="text-xs font-bold text-[#0A4A48] flex items-center gap-1.5 ml-2 cursor-pointer">
+                  <input type="checkbox" id="bottleSpin" class="cursor-pointer"> Auto-spin
+                </label>
+              </div>
+            </div>
+
+            <div id="bottleWrap">
+              <canvas id="bottleCanvas"></canvas>
+              <div id="bottleTooltip" class="absolute left-4 bottom-4 bg-white/90 backdrop-blur-sm px-3.5 py-1.5 rounded-xl border border-[#CBD8D6] text-xs font-medium text-[#142322] shadow-sm max-w-[80%] pointer-events-none">
+                Front: what it is, what it is for, and the doctor strip.
+              </div>
             </div>
           </div>
+
         </div>
 
         <!-- Pack Specimen Inspector Grid -->
