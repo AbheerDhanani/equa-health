@@ -13,7 +13,6 @@
   --equa-coral: #EB6B47;
   --equa-coral-hover: #D85633;
   --equa-coral-light: #FDF1ED;
-  --equa-coral-subtle: #FFF7F5;
   
   --equa-aqua: #2BB3A4;
   --equa-aqua-dark: #1E8F83;
@@ -30,7 +29,6 @@
   --equa-muted-light: #8DA4A2;
 }
 
-/* Base resets & typography */
 body {
   font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   color: var(--equa-ink);
@@ -47,125 +45,85 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--equa-ink);
 }
 
-/* Custom scrollbar */
-::-webkit-scrollbar {
-  width: 8px;
-}
-::-webkit-scrollbar-track {
-  background: var(--equa-oat);
-}
-::-webkit-scrollbar-thumb {
-  background: #C4D3D1;
-  border-radius: 4px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: var(--equa-teal-medium);
-}
-
-/* Hero Pill Visualizer interactive toggle */
-.pill-wrapper {
-  position: relative;
-  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.pill-capsule {
-  width: 220px;
-  height: 90px;
-  border-radius: 45px;
-  display: flex;
-  overflow: hidden;
-  box-shadow: 0 12px 32px rgba(10, 74, 72, 0.15);
-  transition: transform 0.4s ease;
-}
-
-.pill-capsule:hover {
-  transform: translateY(-4px) scale(1.02);
-}
-
-.pill-half-origin {
-  flex: 1;
-  background: linear-gradient(135deg, #4A6984 0%, #2A4864 100%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  font-weight: 700;
-  font-size: 14px;
-}
-
-.pill-half-equa {
-  flex: 1;
-  background: linear-gradient(135deg, var(--equa-coral) 0%, #F07E5C 100%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  font-weight: 700;
-  font-size: 14px;
-}
-
-.pill-half-aqua {
-  flex: 1;
-  background: linear-gradient(135deg, var(--equa-aqua) 0%, #3AD4C3 100%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  font-weight: 700;
-  font-size: 14px;
-}
-
-/* Bioequivalence Canvas Chart */
-#bioeqCanvas {
-  width: 100%;
-  height: 280px;
-  border-radius: 12px;
-}
-
-/* Card hover elevations */
+/* Card elevations */
 .equa-card {
   background: var(--equa-oat-card);
   border: 1px solid var(--equa-border);
-  border-radius: 20px;
-  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  border-radius: 18px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
 }
 
 .equa-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 16px 36px rgba(10, 74, 72, 0.08);
   border-color: #CBD8D6;
 }
 
-/* Interactive slider */
-input[type="range"] {
-  -webkit-appearance: none;
-  appearance: none;
+/* Interactive EQUA Pack Mockup & 3D Viewer */
+.pack-mockup {
+  background: linear-gradient(145deg, #FFFFFF 0%, #F8FAF9 100%);
+  border: 2px solid var(--equa-teal);
+  border-radius: 20px;
+  box-shadow: 0 16px 36px rgba(10, 74, 72, 0.08);
+  position: relative;
+}
+
+#threeDContainer {
   width: 100%;
-  height: 8px;
-  background: #DCE5E4;
-  border-radius: 4px;
-  outline: none;
+  height: 480px;
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  background: radial-gradient(circle at center, #FBF8F2 0%, #EFE8DA 100%);
+  border: 1px solid var(--equa-border);
 }
 
-input[type="range"]::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  appearance: none;
-  width: 24px;
-  height: 24px;
-  background: var(--equa-teal);
-  border: 3px solid #FFFFFF;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-  border-radius: 50%;
+#threeDCanvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  touch-action: none;
+  cursor: grab;
+}
+
+#threeDCanvas:active {
+  cursor: grabbing;
+}
+
+.view-btn {
+  font-weight: 700;
+  font-size: 0.8rem;
+  border: 2px solid var(--equa-teal);
+  background: #FFFFFF;
+  color: var(--equa-teal);
+  border-radius: 999px;
+  padding: 6px 14px;
   cursor: pointer;
-  transition: transform 0.15s ease, background-color 0.15s ease;
+  transition: all 0.2s ease;
 }
 
-input[type="range"]::-webkit-slider-thumb:hover {
-  transform: scale(1.15);
-  background: var(--equa-coral);
+.view-btn.on {
+  background: var(--equa-teal);
+  color: #FFFFFF;
 }
 
-/* Custom Accordion */
+.pack-hotspot {
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
+  border-radius: 10px;
+  padding: 8px 12px;
+}
+
+.pack-hotspot:hover {
+  background-color: rgba(43, 179, 164, 0.12);
+  outline: 2px dashed var(--equa-teal);
+}
+
+.pack-hotspot.active {
+  background-color: rgba(235, 107, 71, 0.12);
+  outline: 2px solid var(--equa-coral);
+}
+
+/* FAQ Accordion */
 .faq-question {
   cursor: pointer;
   user-select: none;
@@ -174,67 +132,37 @@ input[type="range"]::-webkit-slider-thumb:hover {
 .faq-answer {
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.35s cubic-bezier(0, 1, 0, 1), opacity 0.3s ease;
+  transition: max-height 0.3s cubic-bezier(0, 1, 0, 1), opacity 0.25s ease;
   opacity: 0;
 }
 
 .faq-item.active .faq-answer {
-  max-height: 500px;
+  max-height: 600px;
   opacity: 1;
-  transition: max-height 0.4s ease-in-out, opacity 0.35s ease;
 }
 
 .faq-item.active .faq-icon {
   transform: rotate(180deg);
 }
 
-/* Language toggle active pill */
-.lang-btn.active {
-  background-color: var(--equa-teal);
-  color: #FFFFFF;
-  box-shadow: 0 2px 8px rgba(10, 74, 72, 0.25);
-}
-
-/* Print styling for Doctor Slip Modal */
+/* Print Styles for Doctor Note */
 @media print {
   body * {
     visibility: hidden;
   }
-  #doctorSlipModal, #doctorSlipModal * {
+  #doctorNoteModal, #doctorNoteModal * {
     visibility: visible;
   }
-  #doctorSlipModal {
+  #doctorNoteModal {
     position: absolute;
     left: 0;
     top: 0;
     width: 100%;
     margin: 0;
-    padding: 20px;
+    padding: 0;
     background: white !important;
   }
   .no-print {
     display: none !important;
   }
-}
-
-/* Smooth tab switches */
-.filter-tab.active {
-  background-color: var(--equa-teal);
-  color: white;
-  border-color: var(--equa-teal);
-}
-
-/* Badge styling */
-.badge-certified {
-  background-color: #E6F6F4;
-  color: var(--equa-teal);
-  border: 1px solid #B8E4DF;
-}
-
-/* Glassmorphism nav overlay */
-.glass-nav {
-  background-color: rgba(251, 248, 242, 0.92);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(229, 223, 211, 0.8);
 }
