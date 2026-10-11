@@ -1,41 +1,11 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 160" width="100%" height="100%">
-  <defs>
-    <style>
-      .equa-text {
-        font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-        font-weight: 800;
-        letter-spacing: -0.02em;
-      }
-      .equa-sub {
-        font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-        font-weight: 700;
-        letter-spacing: 0.32em;
-        font-size: 15px;
-      }
-    </style>
-  </defs>
-
-  <!-- Letter E -->
-  <path d="M 40 32 L 95 32 C 100 32 103 35 103 40 C 103 45 100 48 95 48 L 57 48 L 57 66 L 90 66 C 95 66 98 69 98 74 C 98 79 95 82 90 82 L 57 82 L 57 102 L 96 102 C 101 102 104 105 104 110 C 104 115 101 118 96 118 L 40 118 C 35 118 32 115 32 110 L 32 40 C 32 35 35 32 40 32 Z" fill="#FFFFFF"/>
-
-  <!-- Letter Q Group -->
-  <g transform="translate(116, 28)">
-    <!-- Outer circle of Q with tail gap -->
-    <path d="M 47 4 C 71 4 90 23 90 47 C 90 56 87 64 82 71 C 74 83 61 90 47 90 C 23 90 4 71 4 47 C 4 23 23 4 47 4 Z M 47 20 C 32 20 20 32 20 47 C 20 62 32 74 47 74 C 54 74 61 71 66 66 C 71 61 74 54 74 47 C 74 32 62 20 47 20 Z" fill="#FFFFFF"/>
-    
-    <!-- Coral / Terracotta upper leaf / care swoosh -->
-    <path d="M 33 50 C 35 37 47 31 61 31 C 67 31 72 33 76 36 C 73 42 66 48 57 51 C 48 54 39 53 33 50 Z" fill="#EB6B47"/>
-    
-    <!-- Aqua / Teal lower leaf / Q tail swoosh -->
-    <path d="M 34 52 C 45 52 56 48 64 43 C 69 49 71 58 75 66 C 78 72 84 78 93 83 C 83 85 73 82 66 74 C 61 68 57 63 50 63 C 42 63 36 58 34 52 Z" fill="#2BB3A4"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 450 140" role="img" aria-labelledby="title desc">
+  <title id="title">EQUA logo</title>
+  <desc id="desc">White EQUA wordmark with a coral tick inside the Q.</desc>
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M35 30H102M35 70H88M35 110H102M35 30V110" stroke="#FFFFFF" stroke-width="15"/>
+    <circle cx="182" cy="70" r="46" stroke="#FFFFFF" stroke-width="15"/>
+    <path d="M158 68L176 86L211 43" stroke="#E8704F" stroke-width="15"/>
+    <path d="M264 30V76C264 99 278 113 302 113C326 113 340 99 340 76V30" stroke="#FFFFFF" stroke-width="15"/>
+    <path d="M368 110L400 30L430 110M381 78H418" stroke="#FFFFFF" stroke-width="15"/>
   </g>
-
-  <!-- Letter U -->
-  <path d="M 235 32 C 240 32 244 36 244 41 L 244 80 C 244 95 254 104 268 104 C 282 104 292 95 292 80 L 292 41 C 292 36 296 32 301 32 C 306 32 310 36 310 41 L 310 80 C 310 104 292 120 268 120 C 244 120 226 104 226 80 L 226 41 C 226 36 230 32 235 32 Z" fill="#FFFFFF"/>
-
-  <!-- Letter A -->
-  <path d="M 364 32 C 369 32 374 35 377 40 L 413 111 C 415 115 413 120 409 122 C 405 124 400 122 398 118 L 389 100 L 340 100 L 331 118 C 329 122 324 124 320 122 C 316 120 314 115 316 111 L 352 40 C 354 35 359 32 364 32 Z M 348 84 L 381 84 L 364 50 Z" fill="#FFFFFF"/>
-
-  <!-- Tagline: CLEAR CHOICE. FAIR PRICE. -->
-  <text x="224" y="148" text-anchor="middle" class="equa-sub" fill="#FFFFFF">CLEAR CHOICE. FAIR PRICE.</text>
 </svg>

@@ -990,7 +990,7 @@ function initMedicineChecker() {
         <!-- Action footer on card -->
         <div class="mt-4 pt-3.5 border-t border-[#F2ECE1] flex flex-wrap items-center justify-between gap-3 text-xs">
           <div class="text-[#597371] flex items-center gap-1.5">
-            <img src="assets/badge-logo.png" alt="Verified" class="w-4 h-4 object-contain">
+            <img src="assets/logo-icon.svg?v=3" alt="Verified" class="w-4 h-4 object-contain">
             <span><strong>Proof: </strong>${m.bioequivalenceProof}</span>
           </div>
           <div class="flex items-center gap-2">
